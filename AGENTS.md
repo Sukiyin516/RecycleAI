@@ -30,3 +30,16 @@
 - 不得把模拟 API 测试说成真实百炼或 Gemini 识别测试成功。
 - 修改 API 提供商时更新 DEVELOPMENT_LOG.md，记录真实迁移原因，不虚构准确率或性能结论。
 - 需要同步两个分支时，分别提醒用户 Commit to main / Commit to gemini-version，再 Push origin（未发布分支使用 Publish branch）。不得自行 Commit 或 Push。
+
+## 每日开发记录与 PPT 素材（长期执行）
+
+- 每次完成开发、修复或项目文档任务后，交付前自动更新 `development_records/daily/YYYY-MM-DD.md`，使用用户客户端 Asia/Shanghai 日期。已有同日文件必须保留，按实际先后顺序追加任务A/B/C，不另建同日重复日志，不覆盖之前的失败记录。
+- 日志固定六栏：1.今日开发目标（Objectives）；2.AI Prompt记录（Prompts）；3.开发过程（Development Process）；4.问题与修改（Problems & Iterations）；5.测试结果（Testing）；6.开发证据（Evidence）。每轮任务的事实按顺序追加到相应栏目。参考 `development_records/DAILY_TEMPLATE.md`。
+- 重要用户Prompt在 `development_records/prompts/` 按日期和轮次保存原文，日志按顺序相对引用，不擅自改写。缺失标“原始 Prompt 待补充”，不得补造用户要求、对话或AI内部推理。敏感值以 `[已脱敏]` 替换并注明，不保存含真实凭据的原始副本。
+- 每完成重要功能或修复，同步更新 `development_records/PPT_MATERIALS.md` 的相关七主题，并引用日志、真实截图或实际代码版本。事实、旧记录记载、当前实测和未来计划必须区分；没有用户测试就不写评价或学习效果结论。
+- 将真实截图保存在 `development_records/screenshots/`，命名包含日期和状态，重名加序号，不覆盖旧证据。使用日志到截图的Markdown相对路径，更新截图索引和来源信息。不能生成假截图或把演示/模拟结果当真实AI识别；缺失历史截图不得今天重演后冒充当时现场。
+- 有浏览器能力时保存与本任务相关的真实页面/报错状态；无法捕获时，向用户明确说明需手动截图的页面、状态及推荐文件名。Codex对话、GitHub Desktop和课堂反馈等缺失证据列入待补清单。截图/Prompt如可能带Key、密码、Cookie或隐私，提醒先遮挡，禁止落盘或提交含敏感内容的材料。
+- 只记实际执行的测试，区分通过、失败后修复、尚未测试，以及离线模拟、本地浏览器联调、真实供应商API、真实用户研究。文档修改不必重复运行所有功能测试，但要说明没运行。不能用提交时间推断开发时间，不能为未提交修改编造Commit Hash。
+- 优先引用已有PROMPTS/CHANGELOG/TEST_LOG或DEVELOPMENT_LOG/TEST_RESULTS，避免多份重复全文；不得未经允许删除已有开发记录或用户未提交的修改。
+- 用户说“今天收工，整理开发记录”时，检查当天六栏、原始Prompt顺序、截图链接和敏感信息、测试状态、PPT素材及Git状态；补齐可核实记录，给出简短总结、待补证据和建议英文Commit Summary，不自动开发新功能或发起收费API测试。
+- 每次结束继续使用上述GitHub版本保存提醒：要求用户在GitHub Desktop检查Changes、Commit和Push；未经明确确认不自动Commit或Push。提交后才能核实并补记真实Hash。这是任务内记录规范，不创建后台定时自动化。

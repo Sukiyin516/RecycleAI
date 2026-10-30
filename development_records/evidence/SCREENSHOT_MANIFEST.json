@@ -1,0 +1,92 @@
+[
+  {
+    "file": "2026-10-29_gemini_home_archived.png",
+    "source": "test-results/home.png",
+    "date": "2026-10-29",
+    "date_basis": "原测试文档及本聊天对应执行记录；不是由文件修改时间推定",
+    "state": "Gemini阶段主页；无真实API调用",
+    "version": "Gemini基线8016f95",
+    "real_cloud_api": false,
+    "sha256": "05af548f2064edae31f6a4df87720619f09bfefe96b50c738f7e5605b65fe40c"
+  },
+  {
+    "file": "2026-10-29_gemini_demo_archived.png",
+    "source": "test-results/result.png",
+    "date": "2026-10-29",
+    "date_basis": "原测试文档及本聊天对应执行记录；不是由文件修改时间推定",
+    "state": "本地演示与50分树；非真实识别",
+    "version": "Gemini基线8016f95",
+    "real_cloud_api": false,
+    "sha256": "dd08fd6d6581ffec0d1734303f8e32aff1ae2ee3f9e560b4c425b6f2d873f7e6"
+  },
+  {
+    "file": "2026-10-29_gemini_mobile_archived.png",
+    "source": "test-results/mobile.png",
+    "date": "2026-10-29",
+    "date_basis": "原测试文档及本聊天对应执行记录；不是由文件修改时间推定",
+    "state": "历史手机布局",
+    "version": "Gemini基线8016f95",
+    "real_cloud_api": false,
+    "sha256": "ed93a330bd58a0a91654ca44cc05876e4e3c7ddef12e07e15ac086fdf15c7023"
+  },
+  {
+    "file": "2026-10-31_bailian_home_archived.png",
+    "source": ".tmp/bailian-browser-results/home.png",
+    "date": "2026-10-31",
+    "date_basis": "原测试文档及本聊天对应执行记录；不是由文件修改时间推定",
+    "state": "百炼迁移阶段主页",
+    "version": "main未提交百炼工作区，非8016f95内容",
+    "real_cloud_api": false,
+    "sha256": "94dc109c750667d4ced8bd1053ddd27ac4ded4438eca95fc08daaf33f0e5bc00"
+  },
+  {
+    "file": "2026-10-31_bailian_demo_archived.png",
+    "source": ".tmp/bailian-browser-results/result.png",
+    "date": "2026-10-31",
+    "date_basis": "原测试文档及本聊天对应执行记录；不是由文件修改时间推定",
+    "state": "本地演示50分；非真实百炼识别",
+    "version": "main未提交百炼工作区，非8016f95内容",
+    "real_cloud_api": false,
+    "sha256": "d12d2879c42a94a5d4f0362dc4cb761e8b21e31d0beaf08f50d7cb2549825706"
+  },
+  {
+    "file": "2026-10-31_bailian_mobile_archived.png",
+    "source": ".tmp/bailian-browser-results/mobile.png",
+    "date": "2026-10-31",
+    "date_basis": "原测试文档及本聊天对应执行记录；不是由文件修改时间推定",
+    "state": "迁移阶段手机布局",
+    "version": "main未提交百炼工作区，非8016f95内容",
+    "real_cloud_api": false,
+    "sha256": "e918a63947d4532d15dafeee421397cd4e165b89d10718788bdbe2bfffec2276"
+  },
+  {
+    "file": "2026-10-31_current_home.png",
+    "source": "本轮Edge浏览器实际捕获",
+    "date": "2026-10-31",
+    "date_basis": "当前客户端日期",
+    "state": "当前主页，独立临时浏览器0分",
+    "version": "main未提交百炼工作区；仅记录任务未修改功能",
+    "real_cloud_api": false,
+    "sha256": "c4458295afe920fb0bab5de2ba8b87763a6e92bbfcc8513d98269bcc3733ca5c"
+  },
+  {
+    "file": "2026-10-31_local_demo_banana.png",
+    "source": "本轮Edge浏览器实际捕获",
+    "date": "2026-10-31",
+    "date_basis": "当前客户端日期",
+    "state": "当前本地香蕉皮演示，未调用AI",
+    "version": "main未提交百炼工作区；仅记录任务未修改功能",
+    "real_cloud_api": false,
+    "sha256": "b023a1e9fed8a5a735ef3721f1ce4b95c6d46d6438e6393118bf196eb495d87f"
+  },
+  {
+    "file": "2026-10-31_missing_bailian_key.png",
+    "source": "本轮Edge浏览器实际捕获",
+    "date": "2026-10-31",
+    "date_basis": "当前客户端日期",
+    "state": "当前真实本地缺密钥503，合成绿色PNG输入，不是识别成功",
+    "version": "main未提交百炼工作区；仅记录任务未修改功能",
+    "real_cloud_api": false,
+    "sha256": "e1454d1dd8111ec1f6d5194b0998c5239dd362fd373092eeea7229fbd98ffbb3"
+  }
+]
