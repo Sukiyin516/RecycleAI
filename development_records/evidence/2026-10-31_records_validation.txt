@@ -1,0 +1,124 @@
+2026-10-31 Asia/Shanghai — Documentation and evidence checks, not real AI recognition tests.
+PASS: relative link HISTORY.md -> prompts/2026-10-29_01_gemini_backend.md
+PASS: relative link HISTORY.md -> daily/2026-10-29.md
+PASS: relative link HISTORY.md -> ../TEST_RESULTS.md
+PASS: relative link HISTORY.md -> daily/2026-10-30.md
+PASS: relative link HISTORY.md -> ../DEVELOPMENT_LOG.md
+PASS: relative link HISTORY.md -> daily/2026-10-31.md
+PASS: relative link HISTORY.md -> daily/2026-10-31.md
+PASS: relative link HISTORY.md -> PPT_MATERIALS.md
+PASS: relative link PPT_MATERIALS.md -> prompts/2026-10-29_01_gemini_backend.md
+PASS: relative link PPT_MATERIALS.md -> daily/2026-10-29.md
+PASS: relative link PPT_MATERIALS.md -> screenshots/2026-10-31_current_home.png
+PASS: relative link PPT_MATERIALS.md -> ../app.py
+PASS: relative link PPT_MATERIALS.md -> ../rules.json
+PASS: relative link PPT_MATERIALS.md -> daily/2026-10-31.md
+PASS: relative link PPT_MATERIALS.md -> daily/2026-10-29.md
+PASS: relative link PPT_MATERIALS.md -> HISTORY.md
+PASS: relative link PPT_MATERIALS.md -> screenshots/2026-10-29_gemini_home_archived.png
+PASS: relative link PPT_MATERIALS.md -> screenshots/2026-10-31_bailian_home_archived.png
+PASS: relative link PPT_MATERIALS.md -> daily/2026-10-30.md
+PASS: relative link PPT_MATERIALS.md -> ../README.md
+PASS: relative link PPT_MATERIALS.md -> ../app.py
+PASS: relative link PPT_MATERIALS.md -> ../TEST_RESULTS.md
+PASS: relative link PPT_MATERIALS.md -> daily/2026-10-31.md
+PASS: relative link PPT_MATERIALS.md -> screenshots/2026-10-31_missing_bailian_key.png
+PASS: relative link PPT_MATERIALS.md -> screenshots/2026-10-31_local_demo_banana.png
+PASS: relative link PPT_MATERIALS.md -> prompts/2026-10-29_01_gemini_backend.md
+PASS: relative link PPT_MATERIALS.md -> daily/2026-10-29.md
+PASS: relative link PPT_MATERIALS.md -> daily/2026-10-31.md
+PASS: relative link PPT_MATERIALS.md -> prompts/2026-10-31_01_bailian_migration.md
+PASS: relative link PPT_MATERIALS.md -> ../DEVELOPMENT_LOG.md
+PASS: relative link PPT_MATERIALS.md -> daily/2026-10-29.md
+PASS: relative link PPT_MATERIALS.md -> daily/2026-10-31.md
+PASS: relative link PPT_MATERIALS.md -> ../rules.json
+PASS: relative link PPT_MATERIALS.md -> ../app.py
+PASS: relative link PPT_MATERIALS.md -> ../TEST_RESULTS.md
+PASS: relative link PPT_MATERIALS.md -> daily/2026-10-31.md
+PASS: relative link PPT_MATERIALS.md -> screenshots/2026-10-31_bailian_demo_archived.png
+PASS: relative link PPT_MATERIALS.md -> ../AGENTS.md
+PASS: relative link PPT_MATERIALS.md -> prompts/2026-10-31_02_record_mechanism.md
+PASS: relative link README.md -> PPT_MATERIALS.md
+PASS: relative link README.md -> HISTORY.md
+PASS: relative link README.md -> daily/2026-10-29.md
+PASS: relative link README.md -> daily/2026-10-30.md
+PASS: relative link README.md -> daily/2026-10-31.md
+PASS: relative link README.md -> DAILY_TEMPLATE.md
+PASS: relative link README.md -> screenshots/README.md
+PASS: relative link README.md -> ../DEVELOPMENT_LOG.md
+PASS: relative link README.md -> ../TEST_RESULTS.md
+PASS: relative link README.md -> ../readme.txt
+PASS: relative link daily\2026-10-29.md -> ../prompts/2026-10-29_01_gemini_backend.md
+PASS: relative link daily\2026-10-29.md -> ../../TEST_RESULTS.md
+PASS: relative link daily\2026-10-29.md -> ../../readme.txt
+PASS: relative link daily\2026-10-29.md -> ../screenshots/2026-10-29_gemini_home_archived.png
+PASS: relative link daily\2026-10-29.md -> ../screenshots/2026-10-29_gemini_demo_archived.png
+PASS: relative link daily\2026-10-29.md -> ../screenshots/2026-10-29_gemini_mobile_archived.png
+PASS: relative link daily\2026-10-30.md -> ../prompts/2026-10-30_01_github_rules.md
+PASS: relative link daily\2026-10-30.md -> ../prompts/2026-10-30_01_github_rules.md
+PASS: relative link daily\2026-10-30.md -> ../../AGENTS.md
+PASS: relative link daily\2026-10-30.md -> ../HISTORY.md
+PASS: relative link daily\2026-10-31.md -> ../prompts/2026-10-31_01_bailian_migration.md
+PASS: relative link daily\2026-10-31.md -> ../prompts/2026-10-31_02_record_mechanism.md
+PASS: relative link daily\2026-10-31.md -> ../../TEST_RESULTS.md
+PASS: relative link daily\2026-10-31.md -> ../screenshots/2026-10-31_bailian_home_archived.png
+PASS: relative link daily\2026-10-31.md -> ../screenshots/2026-10-31_bailian_demo_archived.png
+PASS: relative link daily\2026-10-31.md -> ../screenshots/2026-10-31_bailian_mobile_archived.png
+PASS: relative link daily\2026-10-31.md -> ../screenshots/2026-10-31_current_home.png
+PASS: relative link daily\2026-10-31.md -> ../screenshots/2026-10-31_local_demo_banana.png
+PASS: relative link daily\2026-10-31.md -> ../screenshots/2026-10-31_missing_bailian_key.png
+PASS: relative link daily\2026-10-31.md -> ../evidence/SCREENSHOT_MANIFEST.json
+PASS: relative link daily\2026-10-31.md -> ../evidence/2026-10-31_records_validation.txt
+PASS: relative link daily\2026-10-31.md -> ../../DEVELOPMENT_LOG.md
+PASS: relative link daily\2026-10-31.md -> ../../TEST_RESULTS.md
+PASS: relative link daily\2026-10-31.md -> ../PPT_MATERIALS.md
+PASS: relative link daily\2026-10-31.md -> ../screenshots/README.md
+PASS: relative link screenshots\README.md -> ../evidence/SCREENSHOT_MANIFEST.json
+PASS: relative link screenshots\README.md -> 2026-10-29_gemini_home_archived.png
+PASS: relative link screenshots\README.md -> 2026-10-29_gemini_demo_archived.png
+PASS: relative link screenshots\README.md -> 2026-10-29_gemini_mobile_archived.png
+PASS: relative link screenshots\README.md -> 2026-10-31_bailian_home_archived.png
+PASS: relative link screenshots\README.md -> 2026-10-31_bailian_demo_archived.png
+PASS: relative link screenshots\README.md -> 2026-10-31_bailian_mobile_archived.png
+PASS: relative link screenshots\README.md -> 2026-10-31_current_home.png
+PASS: relative link screenshots\README.md -> 2026-10-31_local_demo_banana.png
+PASS: relative link screenshots\README.md -> 2026-10-31_missing_bailian_key.png
+PASS: six ordered sections 2026-10-29.md
+PASS: six ordered sections 2026-10-30.md
+PASS: six ordered sections 2026-10-31.md
+PASS: screenshot hash 2026-10-29_gemini_home_archived.png
+PASS: archived screenshot unchanged 2026-10-29_gemini_home_archived.png
+PASS: screenshot hash 2026-10-29_gemini_demo_archived.png
+PASS: archived screenshot unchanged 2026-10-29_gemini_demo_archived.png
+PASS: screenshot hash 2026-10-29_gemini_mobile_archived.png
+PASS: archived screenshot unchanged 2026-10-29_gemini_mobile_archived.png
+PASS: screenshot hash 2026-10-31_bailian_home_archived.png
+PASS: archived screenshot unchanged 2026-10-31_bailian_home_archived.png
+PASS: screenshot hash 2026-10-31_bailian_demo_archived.png
+PASS: archived screenshot unchanged 2026-10-31_bailian_demo_archived.png
+PASS: screenshot hash 2026-10-31_bailian_mobile_archived.png
+PASS: archived screenshot unchanged 2026-10-31_bailian_mobile_archived.png
+PASS: screenshot hash 2026-10-31_current_home.png
+PASS: screenshot hash 2026-10-31_local_demo_banana.png
+PASS: screenshot hash 2026-10-31_missing_bailian_key.png
+PASS: all pre-existing tracked files except AGENTS.md unchanged since this task began
+PASS: no common credential pattern DAILY_TEMPLATE.md
+PASS: no common credential pattern HISTORY.md
+PASS: no common credential pattern PPT_MATERIALS.md
+PASS: no common credential pattern README.md
+PASS: no common credential pattern daily\2026-10-29.md
+PASS: no common credential pattern daily\2026-10-30.md
+PASS: no common credential pattern daily\2026-10-31.md
+PASS: no common credential pattern evidence\2026-10-31_records_validation.txt
+PASS: no common credential pattern evidence\2026-10-31_version_state.txt
+PASS: no common credential pattern evidence\SCREENSHOT_MANIFEST.json
+PASS: no common credential pattern prompts\2026-10-29_01_gemini_backend.md
+PASS: no common credential pattern prompts\2026-10-30_01_github_rules.md
+PASS: no common credential pattern prompts\2026-10-31_01_bailian_migration.md
+PASS: no common credential pattern prompts\2026-10-31_02_record_mechanism.md
+PASS: no common credential pattern screenshots\README.md
+PASS: no private .env copied to records
+OBSERVED: HEAD=2c9b7cf; external commits appeared during task. No commit/push command executed by this task.
+PASS: daily records not ignored by Git
+Browser capture performed in this task: homepage, local banana demo, missing-key error; no real cloud request.
+Manual visual inspection: new missing-key and banana screenshots contain no visible credentials; no fake API success image.

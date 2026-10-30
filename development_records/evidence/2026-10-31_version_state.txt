@@ -6,10 +6,12 @@ d92f46d 2026-10-31T00:17:47+08:00 Migrate main to Bailian Qwen
 D:/eduhk_AIET/INIT6065/project/RecycleAI                d92f46d [main]
 D:/eduhk_AIET/INIT6065/project/RecycleAI-gemini-version 9aa5aea [gemini-version]
 
-以下是当前未提交功能文件的SHA256，不是Commit Hash：
+以下是本轮功能文件的SHA256（内容与任务开始时相同；工作期间已被d92f46d提交），不是Commit Hash：
 app.py 429b9c2a66a174de359b75c3d57c0f733c7f5f40cd03c9da740692a355872b30
 RecycleAI_修复版_第一阶段.html 5b9213b4a19c5b788e07cbc0e3d46ec7d83875689754f66f7d087cfdb1679e89
 rules.json 7ba9ea846e0e064542c67f4edef7f9d6fe0ccc9cb20840b010e444844dd5fee1
 requirements.txt 78675265e3b97e18a73b0ef8ac2418be8e15f6a5d5f8f9fcfcecb5ab6869671f
 test_app.py f1dec43ef1a3ed7c445fd024f4e733da28f188cea65e81cf2466df77a1174e30
 test_browser.py 5ab203f19492145b9ed51311179075142aca34d00da1f237f4c230c6616d118e
+
+交付追加观察：2c9b7cf（2026-10-31 00:25:00+08:00，Add development logs and PPT materials）已保存首版记录；最终检查和状态更正仍需提交。该提交不是本任务助手执行。

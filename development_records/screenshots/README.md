@@ -7,12 +7,12 @@
 | [2026-10-29_gemini_home_archived.png](2026-10-29_gemini_home_archived.png) | 主页外观，不证明AI调用 | test-results/home.png；Gemini基线 |
 | [2026-10-29_gemini_demo_archived.png](2026-10-29_gemini_demo_archived.png) | 本地演示、50分和Lv.2 | test-results/result.png；非真实识别 |
 | [2026-10-29_gemini_mobile_archived.png](2026-10-29_gemini_mobile_archived.png) | 手机布局 | test-results/mobile.png |
-| [2026-10-31_bailian_home_archived.png](2026-10-31_bailian_home_archived.png) | 百炼文字的主页 | .tmp/bailian-browser-results/home.png；未提交百炼工作区 |
+| [2026-10-31_bailian_home_archived.png](2026-10-31_bailian_home_archived.png) | 百炼文字的主页 | .tmp/bailian-browser-results/home.png；迁移时未提交的百炼工作区；当前实现已在d92f46d |
 | [2026-10-31_bailian_demo_archived.png](2026-10-31_bailian_demo_archived.png) | 本地演示和50分树 | .tmp/bailian-browser-results/result.png；非真实识别 |
 | [2026-10-31_bailian_mobile_archived.png](2026-10-31_bailian_mobile_archived.png) | 百炼阶段手机布局 | .tmp/bailian-browser-results/mobile.png |
-| [2026-10-31_current_home.png](2026-10-31_current_home.png) | 本轮真实网页，独立浏览器0分 | 本轮Edge捕获；未修改网站功能 |
-| [2026-10-31_local_demo_banana.png](2026-10-31_local_demo_banana.png) | 本地香蕉皮演示 | 本轮Edge捕获；未调用AI |
-| [2026-10-31_missing_bailian_key.png](2026-10-31_missing_bailian_key.png) | 上传合成PNG后本地503、缺Key明确提示 | 本轮Edge捕获；没有发送给百炼 |
+| [2026-10-31_current_home.png](2026-10-31_current_home.png) | 本轮真实网页，独立浏览器0分 | 本轮Edge捕获；未修改网站功能；随后观察到被纳入d92f46d |
+| [2026-10-31_local_demo_banana.png](2026-10-31_local_demo_banana.png) | 本地香蕉皮演示 | 本轮Edge捕获；未调用AI；随后纳入d92f46d |
+| [2026-10-31_missing_bailian_key.png](2026-10-31_missing_bailian_key.png) | 上传合成PNG后本地503、缺Key明确提示 | 本轮Edge捕获；没有发送给百炼；随后纳入d92f46d |
 
 所有图均不证明真实Gemini或百炼识别成功，不用于计算识别准确率。PPT上要保留演示/本地测试标识。
 
@@ -30,3 +30,7 @@
 | 历史HTML修复前、旧错误现场 | 使用实际历史日期加`_before_fix`或`_error` | 原图和日期均待补；不能今天重演冒充历史 |
 
 如果提交或拍摄发生在以后，文件名用实际发生日期，日志注明它补充的是哪个历史阶段。没有权限获得的截图不能伪造。
+
+## 技术选型背景补充（2026-10-31）
+
+学校Google账号访问AI Studio失败由项目成员报告，本次未获取真实报错截图或复现根因。请在真实问题出现时手动截图，使用实际日期的 `YYYY-MM-DD_school_google_access_error.png`，遮挡邮箱、姓名、账号标识及凭据，并补充发生日期。不要从地区名单推断学校管理员禁用了所有账号，也不要生成假报错页面。[Design Iteration记录](../../DEVELOPMENT_LOG.md#design-iteration)。

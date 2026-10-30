@@ -28,7 +28,7 @@
 
 截图用真实浏览器或真实应用捕获，文件名采用 YYYY-MM-DD_内容.png。重名时加 _02，不覆盖原证据。每份截图注明日期依据、页面状态、版本、是否调用真实 API；复制旧截图不改变其历史归属。不用 AI 生成截图，不把本地演示命名为 api_success。
 
-新日志用相对路径引用截图，例如 `../screenshots/2026-10-31_local_demo_banana.png`。PPT 中可注明“Local demo”或“Mock API test”。本次迁移和记录机制尚未提交，不编造 Commit Hash；现有 8016f95 只代表原 Gemini/规范基线。
+新日志用相对路径引用截图，例如 `../screenshots/2026-10-31_local_demo_banana.png`。PPT 中可注明“Local demo”或“Mock API test”。本轮开始时迁移尚未提交；工作期间观察到main提交d92f46d、Gemini提交9aa5aea，首版记录已在2c9b7cf，最终检查与状态更正仍有未提交文件。8016f95只代表原Gemini/规范基线；不将未提交文档冒充已提交。
 
 ## 安全及保存
 

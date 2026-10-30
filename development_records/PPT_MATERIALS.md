@@ -1,6 +1,6 @@
 # RecycleAI PPT 素材库
 
-课程：香港教育大学 INT6065 Artificial Intelligence in Education。以下为简洁中文素材，便于以后制作英文Presentation；没有生成最终PPT。证据基线：Gemini提交727501e/8016f95；百炼及当前记录机制尚未提交，不能使用8016f95冒充百炼版本。所有截图均是网页/本地演示/错误路径，不是实际云端识别成功证据。
+课程：香港教育大学 INT6065 Artificial Intelligence in Education。以下为简洁中文素材，便于以后制作英文Presentation；没有生成最终PPT。证据基线：Gemini提交727501e/8016f95；本轮工作期间观察到百炼已提交d92f46d、Gemini文档已提交9aa5aea；首版记录已在2c9b7cf，最终更正仍有未提交内容，不能使用8016f95冒充百炼版本。所有截图均是网页/本地演示/错误路径，不是实际云端识别成功证据。
 
 ## 1. Problem Identification
 
@@ -18,7 +18,7 @@
 
 - 顺序：早期HTML原型 → 已修复HTML → Gemini Flask接入 → Git规范 → Gemini独立备份/main百炼 → 每日记录机制。[历史阶段索引](HISTORY.md)。早期原型和修复实际日期待补，不能制作虚构的精确时间轴。
 - Gemini阶段：[归档主页](screenshots/2026-10-29_gemini_home_archived.png)；百炼阶段：[归档主页](screenshots/2026-10-31_bailian_home_archived.png)。可对比保留界面及供应商提示，不能标为同一天拍摄的修复前后实验。
-- Git确切日期：10月30日首次提交727501e，后有8016f95规范提交；10月31日工作区尚未提交。[10月30日日志](daily/2026-10-30.md)。
+- Git确切日期：10月30日首次提交727501e，后有8016f95规范提交；10月31日本轮开始时迁移未提交，工作期间出现d92f46d/9aa5aea，详见当日日志。[10月30日日志](daily/2026-10-30.md)。
 
 ## 4. Technical Feasibility
 
@@ -31,8 +31,14 @@
 
 - 安全与规则：用户明确要求失败不造假、电池不能一律判有害；后端错误不回退演示，未核实电池暂停知识题。[原文](prompts/2026-10-29_01_gemini_backend.md)、[10月29日问题记录](daily/2026-10-29.md)。
 - 百炼迁移时精确匹配缺Key提示的浏览器测试失败：修正多余空格后重测通过；属于开发自行排查，没有额外用户Prompt。[10月31日问题与测试](daily/2026-10-31.md)。当时失败截图待补，不用今天的页面冒充修复前现场。
-- 用户要求先保留Gemini再开发main；使用分支和独立工作目录保护原版本。[实际迁移Prompt](prompts/2026-10-31_01_bailian_migration.md)、[开发记录](../DEVELOPMENT_LOG.md)。未证明更换模型提升性能。
+- 模型选型调整及双分支保存属于 Design Iteration：完整原因、依据及验证边界见[迁移记录](../DEVELOPMENT_LOG.md#design-iteration)；下方保留一份可用于PPT的英文说明。原[迁移Prompt](prompts/2026-10-31_01_bailian_migration.md)及[本次背景补充](prompts/2026-10-31_03_design_iteration.md)按真实顺序保留，不声称更换模型已提升性能。
 - 可用“问题→用户约束→AI协助修改→实际验证”的叙述，引用真实原文和错误截图；不要写出不存在的用户回合。
+
+### Design Iteration: Gemini to Alibaba Cloud Bailian
+
+We initially selected Gemini for its image-understanding capabilities to analyse waste photos. However, our team reported being unable to access Google AI Studio with a school Google account. RecycleAI targets users in Shenzhen, mainland China, which is not listed among Gemini API's supported regions. Google's terms also restrict service access and the availability of API clients by region. To better support practical use in mainland China, we switched the main development branch to Alibaba Cloud Bailian's qwen3.5-flash, while retaining the Gemini version as a backup. This was a design decision driven by access constraints; real API operation in Shenzhen and testing with target users remain unvalidated.
+
+来源与讲解备注：Google[图像理解文档](https://ai.google.dev/gemini-api/docs/image-understanding)、[地区名单](https://ai.google.dev/gemini-api/docs/available-regions)、[服务条款](https://ai.google.dev/gemini-api/terms)，2026-10-31核对。学校账号问题是项目成员报告，本次未独立复现；地区/条款是官方资料核对，不能混称全部为实测。未进行模型性能对比实验。完整过程见[当日日志任务C](daily/2026-10-31.md)和[迁移记录](../DEVELOPMENT_LOG.md)。
 
 ## 6. Evaluation & Feedback
 
