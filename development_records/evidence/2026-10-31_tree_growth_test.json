@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-31",
+  "test_type": "REAL_BROWSER_QUIZ_SCORING_NO_CLOUD_API",
+  "stages": [
+    {
+      "points": 0,
+      "label": "🌱 Lv.1 小树苗",
+      "screenshot": "2026-10-31_tree_lv1_0points.png",
+      "sha256": "4e240be85aa88b78004fab972d6c1bd2f7beb580dba930ae1f654728ea80b398",
+      "svg_sha256": "618b7418bac04936fba73d173df44dd189b75ec74434d915d9d5f7e0b3fb9169"
+    },
+    {
+      "points": 30,
+      "label": "🌿 Lv.2 成长中的小树",
+      "screenshot": "2026-10-31_tree_lv2_30points.png",
+      "sha256": "61ed20652aea7a74f9e4250479773297642fbc29ce774ae10ba8519d70dd7451",
+      "svg_sha256": "39638d179c854275ebeb0f15eb904d42a1ba151fa0663c35a5539a1401290129"
+    },
+    {
+      "points": 60,
+      "label": "🌳 Lv.3 绿色大树",
+      "screenshot": "2026-10-31_tree_lv3_60points.png",
+      "sha256": "777636d1d124ee853e8f115384af925ddaad3358875e14ce423c4b0b38f2de26",
+      "svg_sha256": "ecb0e69ba6d857edd2f971cbf1ffa84c3f0f43dad96dc547063dcf3fc159d837"
+    }
+  ],
+  "answers": [
+    {
+      "rule": "bottle",
+      "question": "这件清洁的可回收物投放前，应该怎样处理？",
+      "points_before": 0,
+      "points_after": 10,
+      "feedback": "🎉 回答正确！获得 +10 环保积分"
+    },
+    {
+      "rule": "can",
+      "question": "这件清洁的可回收物投放前，应该怎样处理？",
+      "points_before": 10,
+      "points_after": 20,
+      "feedback": "🎉 回答正确！获得 +10 环保积分"
+    },
+    {
+      "rule": "box",
+      "question": "这件清洁的可回收物投放前，应该怎样处理？",
+      "points_before": 20,
+      "points_after": 30,
+      "feedback": "🎉 回答正确！获得 +10 环保积分"
+    },
+    {
+      "rule": "banana",
+      "question": "将香蕉皮扔进厨余垃圾桶前，最重要的预处理步骤是？",
+      "points_before": 30,
+      "points_after": 40,
+      "feedback": "🎉 回答正确！获得 +10 环保积分"
+    },
+    {
+      "rule": "tissue",
+      "question": "被污染的生活用纸巾属于哪一类？",
+      "points_before": 40,
+      "points_after": 50,
+      "feedback": "🎉 回答正确！获得 +10 环保积分"
+    },
+    {
+      "rule": "plastic_cup_clean",
+      "question": "塑料杯投放可回收物前，应该怎样处理？",
+      "points_before": 50,
+      "points_after": 60,
+      "feedback": "🎉 回答正确！获得 +10 环保积分"
+    }
+  ],
+  "real_api_requests": 0,
+  "points_written_directly": false,
+  "isolated_browser_storage": true,
+  "reward_screenshot": "2026-10-31_quiz_reward_10points.png",
+  "duplicate_reward_blocked": true,
+  "reload_preserved_points_and_stage": true
+}

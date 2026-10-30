@@ -1,0 +1,15 @@
+test_api_boundary_and_schema_validation (test_app.BackendTests.test_api_boundary_and_schema_validation) ... ok
+test_bad_images (test_app.BackendTests.test_bad_images) ... ok
+test_bad_requests (test_app.BackendTests.test_bad_requests) ... ok
+test_beijing_defaults_and_model_guard (test_app.BackendTests.test_beijing_defaults_and_model_guard) ... ok
+test_failures_never_return_results (test_app.BackendTests.test_failures_never_return_results) ... ok
+test_home_and_no_secret_static_route (test_app.BackendTests.test_home_and_no_secret_static_route) ... ok
+test_large_image_resize (test_app.BackendTests.test_large_image_resize) ... ok
+test_missing_key (test_app.BackendTests.test_missing_key) ... ok
+test_provider_errors_and_config (test_app.BackendTests.test_provider_errors_and_config) ... ok
+test_verified_rules_and_uncertain (test_app.BackendTests.test_verified_rules_and_uncertain) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.451s
+
+OK

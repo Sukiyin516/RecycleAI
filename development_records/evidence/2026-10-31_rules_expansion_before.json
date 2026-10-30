@@ -1,0 +1,78 @@
+{
+  "phase": "Phase 1 completed before any rule/source edit",
+  "original_result_sha256": "58408803e91c146a511de66288b2c8244e215e728adf59a63c7f0a9d5c65eae2",
+  "original_screenshot_sha256": "9cf57a759598d38c884ba67b843c3722dbf97a5f235ef88d95085c2523626f4c",
+  "rules_sha256": "7ba9ea846e0e064542c67f4edef7f9d6fe0ccc9cb20840b010e444844dd5fee1",
+  "rules_before": {
+    "bottle": {
+      "category": "可回收物",
+      "reason": "清空且清洁的塑料饮料瓶属于可回收的废塑料。",
+      "enReason": "An empty, clean plastic beverage bottle is recyclable plastic.",
+      "disposalGuide": "清空内容物并保持清洁干燥，投放可回收物收集容器。",
+      "enDisposalGuide": "Empty the bottle, keep it clean and dry, and use the recyclables container.",
+      "matchCondition": "One empty clean plastic beverage bottle, clearly plastic; no chemicals, mixed materials or obvious heavy contamination.",
+      "matchedKey": "bottle",
+      "sourceUrl": "https://www.szlh.gov.cn/zmhd/wdzsk/content/post_12679202.html",
+      "reviewedAt": "2026-10-29"
+    },
+    "can": {
+      "category": "可回收物",
+      "reason": "清空且清洁的金属饮料罐属于可回收的废金属。",
+      "enReason": "An empty, clean metal beverage can is recyclable metal.",
+      "disposalGuide": "清空内容物并保持清洁干燥，投放可回收物收集容器。",
+      "enDisposalGuide": "Empty the can, keep it clean and dry, and use the recyclables container.",
+      "matchCondition": "One empty clean metal beverage can; not an aerosol or chemical container.",
+      "matchedKey": "can",
+      "sourceUrl": "https://www.szlh.gov.cn/zmhd/wdzsk/content/post_12679202.html",
+      "reviewedAt": "2026-10-29"
+    },
+    "box": {
+      "category": "可回收物",
+      "reason": "清洁干燥、未被油污污染的纸箱属于可回收纸类。",
+      "enReason": "Clean, dry cardboard without oil contamination is recyclable paper.",
+      "disposalGuide": "清空纸箱，保持清洁干燥，投放可回收物收集容器。",
+      "enDisposalGuide": "Empty the box, keep it clean and dry, and use the recyclables container.",
+      "matchCondition": "One clean dry cardboard box without oil, food or mixed-material coating.",
+      "matchedKey": "box",
+      "sourceUrl": "https://www.szlh.gov.cn/zmhd/wdzsk/content/post_12679202.html",
+      "reviewedAt": "2026-10-29"
+    },
+    "banana": {
+      "category": "厨余垃圾",
+      "reason": "香蕉皮是容易腐烂的瓜果皮，属于厨余垃圾。",
+      "enReason": "Banana peel is perishable fruit peel and belongs to food waste.",
+      "disposalGuide": "沥干水分，去除塑料袋等外包装后投放厨余垃圾。",
+      "enDisposalGuide": "Drain liquids and remove plastic bags or other packaging before placing in food waste.",
+      "matchCondition": "One banana peel; no packaging or other mixed waste.",
+      "matchedKey": "banana",
+      "sourceUrl": "https://www.szlh.gov.cn/zmhd/wdzsk/content/post_12679202.html",
+      "reviewedAt": "2026-10-29"
+    },
+    "tissue": {
+      "category": "其他垃圾",
+      "reason": "被污染的纸巾属于其他垃圾，不作为清洁废纸回收。",
+      "enReason": "Contaminated tissue belongs to residual waste rather than clean recyclable paper.",
+      "disposalGuide": "收拢以免散落，投放其他垃圾；医疗废物不在此规则范围内。",
+      "enDisposalGuide": "Contain it to prevent scattering and use residual waste; medical waste is outside this rule.",
+      "matchCondition": "One clearly used contaminated household tissue, not medical waste or an unidentified wet wipe.",
+      "matchedKey": "tissue",
+      "sourceUrl": "https://www.szlh.gov.cn/zmhd/wdzsk/content/post_12679202.html",
+      "reviewedAt": "2026-10-29"
+    },
+    "alkaline": {
+      "category": "其他垃圾",
+      "reason": "已确认无汞的普通碱性干电池通常按其他垃圾处理，不能推广到所有电池。",
+      "enReason": "Confirmed mercury-free ordinary alkaline dry cells are usually residual waste; this does not apply to all batteries.",
+      "disposalGuide": "仅适用于确认无汞的普通碱性干电池；类型不明、充电或破损电池请向投放管理人核实。",
+      "enDisposalGuide": "Only for confirmed mercury-free ordinary alkaline dry cells. Ask the sorting manager about unknown, rechargeable or damaged batteries.",
+      "matchCondition": "One intact ordinary non-rechargeable alkaline dry cell with clearly readable alkaline and mercury-free labels; never infer chemistry from shape.",
+      "matchedKey": null,
+      "sourceUrl": "https://www.szlh.gov.cn/zmhd/wdzsk/content/post_12679202.html",
+      "reviewedAt": "2026-10-29"
+    }
+  },
+  "original_item": "塑料杯",
+  "original_category": "暂时无法确定",
+  "tokens": 1238,
+  "new_real_api_calls": 0
+}

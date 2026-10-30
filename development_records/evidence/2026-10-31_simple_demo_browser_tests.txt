@@ -1,0 +1,4 @@
+PASS: saved plastic-cup name -> recyclables, brief guide, bilingual AI Sorting Suggestion title, wrong-answer explanation/retry, +10 once.
+PASS: clear plastic bottle name maps directly without empty/clean proof.
+PASS: genuinely uncertain item has no quiz or points.
+Offline replay/mocked recognition only. No real API request and no additional Token consumption in this test.

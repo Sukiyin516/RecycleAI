@@ -30,3 +30,25 @@
 **验证边界：** 已核实官方能力/地区/条款资料和本地Git分支；账号访问问题为项目成员报告。现有离线模拟和本地浏览器测试不能证明真实百炼可用性、用户满意度、学习效果或优于Gemini的准确率。真实用户测试尚未进行。
 
 PPT英文表述集中保存在 [PPT_MATERIALS.md 的 Design Iteration](development_records/PPT_MATERIALS.md#design-iteration-gemini-to-alibaba-cloud-bailian)，其他日志引用本节，避免反复复制完整理由。
+
+## 2026-10-31 任务D：依据官方文档落实北京接口与免费Demo配置
+
+- 用户提供apireadme.txt，明确北京Base URL为https://dashscope.aliyuncs.com/compatible-mode/v1；作为接入参考，不执行文档中systemd、sudo或打印密钥的示例指令。官方密钥页同日核实一致。
+- main已有百炼实现，本轮修正旧模板中的业务空间占位符，并在后端限制北京域名及qwen3.5-flash，保留Flask、/api/classify和本地深圳规则库。Gemini备份不修改。
+- 大图长边最多1280、JPEG质量85、校正方向；关闭思考，短JSON输出上限512 Token，不生成规则解释和题目，不自动重试/切换模型或地域。不能据此保证固定Token用量或免费扣量。
+- 用户报告剩余免费额度并开启“免费额度用完即停”；未登录账户核实，未调用真实API。私人.env不覆盖，需要用户本地填写北京Key并确认后再继续真实照片测试。
+- 本轮10项离线测试及浏览器回归通过，详细证据见[任务D日志](development_records/daily/2026-10-31.md)与[本轮配置证据](development_records/evidence/2026-10-31_beijing_api_configuration.json)。
+
+## 2026-10-31 任务E：用户确认后完成首次真实请求
+
+- 用户确认本地Key并提供饮料杯照片。本地Key误填在旧Gemini变量名，补充正确百炼变量及北京/模型配置；私人.env未纳入Git，旧字段保留，不展示Key。应用源代码未改。
+- 只发送1次真实qwen3.5-flash请求；供应商/Flask均200。模型输出“塑料杯 / plastic cup”，材质未独立确认。没有匹配本地规则，因此网页显示不确定、隐藏测验；真实识别结果没有强行改成演示成功。
+- 总1238 Token来自供应商usage，不代表免费扣量已核实。截图、原文授权和脱敏结果见[任务E日志](development_records/daily/2026-10-31.md)。早期真实API未测说明仍保留为历史状态。
+
+## 2026-10-31 任务F/G：扩规则后按课堂需要简化
+
+先保存原始杯子“不确定”证据，再新增10条深圳官方来源规则及双语题。后测经批准只真实调用1次，仍不确定（1717 Token），不改历史结果。用户随后明确不要过度分析杯盖、吸管、内部和污染：已将普通塑料杯/瓶按明确名称直接匹配、清洁放指引与题目，标题为AI分类建议；原则写入AGENTS。13项后端和三个代表性本地浏览器场景通过，简化后无新增真实调用。见[迭代记录](development_records/iterations/2026-10-31_expanding_rules.md)。
+
+## 2026-10-31 任务H：四图课堂演示
+
+依用户授权实际测试4张单图，补充充电电池规则后，四类建议和4道题均完成；截图8张、40分/Lv.2，真实4次共7512 Token。没有重做网页。见[四案例记录](development_records/evidence/2026-10-31_four_live_picture_summary.md)。

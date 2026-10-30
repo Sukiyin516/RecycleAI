@@ -1,0 +1,14 @@
+127.0.0.1 - - [31/Oct/2026 01:09:47] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 01:09:52] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/Oct/2026 01:10:01] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 01:10:04] "POST /api/classify HTTP/1.1" 503 -
+127.0.0.1 - - [31/Oct/2026 01:10:05] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 01:10:06] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 01:10:29] "GET / HTTP/1.1" 200 -
+PASS: HTML opens via Flask
+PASS: six demos, translations, wrong/correct answers, no duplicate points, tree Lv.2, storage
+PASS: real browser upload reaches backend; missing key displays explicit error
+PASS: simulated API failure/success/uncertain rendering; no real Bailian call
+PASS: saved language, mobile layout, synthetic Lv.3 state, reset, standalone HTML demo
+PASS: 11 backend-sourced reviewed quizzes, bilingual wrong-answer explanations, retries, 10 points each, no duplicate points, storage, actual quiz-driven Lv.3 (mock recognition).
+PASS: unmet conditions remain uncertain, no quiz/points; original live evidence untouched.

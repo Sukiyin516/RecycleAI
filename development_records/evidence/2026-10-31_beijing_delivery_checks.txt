@@ -1,0 +1,10 @@
+2026-10-31 task D delivery checks
+PASS: 86 local documentation links exist.
+PASS: six-section daily log retained; task D appended.
+PASS: 3 screenshots match saved SHA256.
+PASS: HTML and rules.json identical to HEAD; Gemini worktree not edited by this task.
+PASS: .env ignored and not tracked; no common credential pattern in changed source/template/docs checked.
+PASS: 10 offline backend tests, pip check and Edge regression (see dedicated output files).
+NOT RUN: real Bailian API, real photo accuracy, actual Beijing free-quota deduction or stop-when-exhausted enforcement.
+Private .env not rewritten. Wait for user to fill it locally and confirm before real tests.
+No commit or push executed by this task.

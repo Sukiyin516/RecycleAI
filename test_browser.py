@@ -8,14 +8,14 @@ from pathlib import Path
 from PIL import Image
 from playwright.sync_api import sync_playwright, expect
 from werkzeug.serving import make_server
-from app import app, RULES
+from app import app, RULES, Observation, build_result
 
 
 def run():
     os.environ['DASHSCOPE_API_KEY'] = ''
     server = make_server('127.0.0.1', 5000, app, threaded=True)
     threading.Thread(target=server.serve_forever, daemon=True).start()
-    output = Path('.tmp/bailian-browser-results')
+    output = Path('.tmp/rules-expansion-browser-results')
     output.mkdir(parents=True, exist_ok=True)
     try:
         with sync_playwright() as playwright:
@@ -111,6 +111,57 @@ def run():
             standalone.locator('#btn-start-ai').click()
             expect(standalone.locator('#res-category-name')).to_have_text('厨余垃圾')
             print('PASS: saved language, mobile layout, synthetic Lv.3 state, reset, standalone HTML demo')
+            # 新规则使用本地审核结果作为模拟响应，不调用供应商。
+            page.unroute('**/api/classify')
+            page.set_viewport_size({'width':1280,'height':1000})
+            page.evaluate("resetForNextItem(); resetDemoPoints(); if(STATE.currentLang === 'en') toggleLanguage();")
+            expected_points = 0
+            for key in [k for k in RULES if k not in ('bottle','can','box','banana','tissue')]:
+                rule = RULES[key]
+                reviewed = build_result(Observation(itemName=rule['itemName'],enItemName=rule['enItemName'],
+                    ruleKey=key,certain=True,singleItem=True,conditionsMet=True))
+                page.route('**/api/classify', lambda route, request, payload=reviewed: route.fulfill(json=payload))
+                upload()
+                expect(page.locator('#sec-result')).to_be_visible()
+                expect(page.locator('#res-category-name')).to_have_text(rule['category'])
+                expect(page.locator('#quiz-banner-wrap')).to_be_visible()
+                if key == 'plastic_cup_clean':
+                    page.screenshot(path=str(output/'reviewed_cup_mock.png'), full_page=True)
+                page.locator('#txt-btn-open-quiz').click()
+                buttons = page.locator('#quiz-options-container button')
+                wrong = next(i for i,o in enumerate(rule['quiz']['options']) if not o['isCorrect'])
+                correct = next(i for i,o in enumerate(rule['quiz']['options']) if o['isCorrect'])
+                buttons.nth(wrong).click()
+                expect(page.locator('#user-points')).to_have_text(str(expected_points))
+                expect(page.locator('#quiz-feedback-explanation')).to_have_text(rule['quiz']['explanation'])
+                page.evaluate('toggleLanguage()')
+                expect(page.locator('#quiz-question-text')).to_have_text(rule['quiz']['enQuestion'])
+                expect(page.locator('#quiz-feedback-explanation')).to_have_text(rule['quiz']['enExplanation'])
+                page.evaluate('toggleLanguage()')
+                buttons.nth(correct).click()
+                expected_points += 10
+                expect(page.locator('#user-points')).to_have_text(str(expected_points))
+                page.locator('#txt-btn-close-quiz').click()
+                page.locator('#txt-btn-open-quiz').click()
+                page.locator('#quiz-options-container button').nth(correct).click()
+                expect(page.locator('#user-points')).to_have_text(str(expected_points))
+                page.locator('#txt-btn-close-quiz').click()
+                page.evaluate('resetForNextItem()')
+                page.unroute('**/api/classify')
+            expect(page.locator('#tree-stage-badge')).to_contain_text('Lv.3')
+            page.reload(wait_until='domcontentloaded')
+            expect(page.locator('#user-points')).to_have_text(str(expected_points))
+            page.screenshot(path=str(output/'expanded_quizzes_tree.png'),full_page=True)
+            print(f'PASS: {expected_points // 10} backend-sourced reviewed quizzes, bilingual wrong-answer explanations, retries, 10 points each, no duplicate points, storage, actual quiz-driven Lv.3 (mock recognition).')
+            # 材质/清洁条件不满足：仍然不确定，不能生成题或加分。
+            unknown = build_result(Observation(itemName='不明杯子',enItemName='Unidentified cup',
+                ruleKey='unknown',certain=False,singleItem=True,conditionsMet=False))
+            page.route('**/api/classify',lambda route:route.fulfill(json=unknown))
+            upload()
+            expect(page.locator('#res-category-name')).to_have_text('暂时无法确定')
+            expect(page.locator('#quiz-banner-wrap')).to_be_hidden()
+            expect(page.locator('#user-points')).to_have_text(str(expected_points))
+            print('PASS: unmet conditions remain uncertain, no quiz/points; original live evidence untouched.')
             assert not errors, errors
             browser.close()
     finally:

@@ -247,7 +247,7 @@
                     <div class="flex items-center justify-between">
                         <h2 class="text-lg font-bold text-slate-800 flex items-center gap-2">
                             <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold">2</span>
-                            <span id="txt-step2-title">AI 智能垃圾分类建议</span>
+                            <span id="txt-step2-title">AI 分类建议</span>
                         </h2>
                         <span class="text-xs text-slate-400" id="txt-verified-tag">演示样例 · 未调用 AI</span>
                     </div>
@@ -671,7 +671,7 @@
                 dragPrompt: '点击上传或将图片拖拽至此处',
                 presetTitle: '本地演示（不调用 AI；电池案例待核实）：',
                 btnAI: '开始 AI 智能识别分类',
-                step2Title: 'AI 智能垃圾分类建议',
+                step2Title: 'AI 分类建议',
                 verifiedTag: '本地演示样例 · 未调用 AI',
                 detectedItem: '识别物品名称',
                 reasonTitle: '分类原因依据',
@@ -695,7 +695,7 @@
                 dragPrompt: 'Click or Drag photo here to upload',
                 presetTitle: 'Local demo samples (no AI recognition):',
                 btnAI: 'Start AI Classification',
-                step2Title: 'AI Sorting Recommendation',
+                step2Title: 'AI Sorting Suggestion',
                 verifiedTag: 'Local sample · No AI recognition',
                 detectedItem: 'Detected Item Name',
                 reasonTitle: 'Classification Reason',
@@ -720,7 +720,7 @@
                 footerTitle: 'RecycleAI — AI 智能垃圾分类与环保学习助手',
                 footerProject: '香港教育大学 (EdUHK) · Artificial Intelligence in Education 小组项目原型',
                 footerNote: '课程 Demo：百炼识别物品，已核实规则分类；未覆盖物品返回暂时无法确定',
-                statusDemo: '本地演示样例 · 未调用 AI', statusAI: 'AI 识别建议 · 请核对规则',
+                statusDemo: '本地演示样例 · 未调用 AI', statusAI: 'AI 分类建议 · 仅供参考',
                 settingsTitle: '项目设置', settingsAILabel: 'AI 连接状态',
                 settingsAIStatus: '本地演示无需密钥。真实照片经 Python 后端调用百炼；请在 .env 配置密钥并重启。图片将发送至阿里云百炼处理。',
                 settingsSecurity: '为了保护密钥，网页不会要求或保存百炼 API Key（DASHSCOPE_API_KEY）。',
@@ -745,7 +745,7 @@
                 footerTitle: 'RecycleAI — Waste Sorting & Environmental Learning Assistant',
                 footerProject: 'EdUHK · Artificial Intelligence in Education · Group Project Prototype',
                 footerNote: 'Course demo: Bailian identifies items; reviewed rules classify them. Uncovered items remain uncertain.',
-                statusDemo: 'Local sample · No AI recognition', statusAI: 'AI suggestion · Verify against local rules',
+                statusDemo: 'Local sample · No AI recognition', statusAI: 'AI sorting suggestion · For reference',
                 settingsTitle: 'Project Settings', settingsAILabel: 'AI Connection Status',
                 settingsAIStatus: 'Demos need no key. Real photos go through Python to Bailian. Configure .env and restart. Photos are sent to Alibaba Cloud Bailian for processing.',
                 settingsSecurity: 'To protect your credentials, this webpage never requests or stores a Bailian API key.',
@@ -1148,7 +1148,7 @@
                 const rule = SHENZHEN_RULES_DB[parsed.matchedKey];
                 // If API and local rule disagree, do not silently overwrite the category.
                 if (rule.category === parsed.category) {
-                    return { ...rule, name: parsed.itemName, enName: parsed.enItemName || rule.enName, reason: parsed.reason, enReason: parsed.enReason, guide: parsed.disposalGuide, enGuide: parsed.enDisposalGuide };
+                    return { ...rule, name: parsed.itemName, enName: parsed.enItemName || rule.enName, reason: parsed.reason, enReason: parsed.enReason, guide: parsed.disposalGuide, enGuide: parsed.enDisposalGuide, quiz: parsed.quiz?.verified === true ? parsed.quiz : rule.quiz };
                 }
             }
             const enCategory = {
@@ -1157,7 +1157,7 @@
                 '暂时无法确定':'Uncertain'
             };
             return {
-                id: 'custom_' + Date.now(),
+                id: parsed.matchedKey || 'custom_' + Date.now(),
                 name: parsed.itemName,
                 enName: parsed.enItemName || parsed.itemName,
                 category: parsed.category,
@@ -1169,7 +1169,7 @@
                 enReason: parsed.enReason || 'Please verify against Shenzhen’s official sorting guidance.',
                 guide: parsed.disposalGuide || '暂时无法确认正确处理方式。',
                 enGuide: parsed.enDisposalGuide || 'Correct disposal method cannot yet be confirmed.',
-                quiz: null // Do not invent potentially incorrect quiz answers for unknown items.
+                quiz: parsed.ruleVerified === true && parsed.quiz?.verified === true && parsed.quiz.options?.length === 3 ? parsed.quiz : null // Only use the backend's reviewed local quiz.
             };
         }
 
@@ -1305,7 +1305,7 @@
                 feedbackBox.className = 'rounded-2xl p-4 text-xs space-y-1.5 border bg-red-50 border-red-200 text-red-900 animate-fade-in';
                 iconElem.className = 'fa-solid fa-circle-xmark text-red-500 text-lg mt-0.5';
                 titleElem.textContent = u.incorrect;
-                expElem.textContent = u.incorrectHint;
+                expElem.textContent = isEn ? (quiz.enExplanation || u.incorrectHint) : (quiz.explanation || u.incorrectHint);
             }
         }
 

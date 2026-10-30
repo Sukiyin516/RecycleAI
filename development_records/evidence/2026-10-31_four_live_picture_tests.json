@@ -1,0 +1,367 @@
+{
+  "date": "2026-10-31",
+  "kind": "FOUR_REAL_USER_AUTHORIZED_API_TESTS",
+  "model": "qwen3.5-flash",
+  "endpoint": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+  "excluded_file": "all(no_test).png",
+  "cases": [
+    {
+      "file": "banana.jpg",
+      "photo_sha256": "b69268c4d466863e89a85b8f5492f6cf9e3e67734cd2cd48dcc97d68cbd1c898",
+      "vendor_responses": [
+        {
+          "http_status": 200,
+          "id": "chatcmpl-29d6ec15-784d-9906-aa6a-a8b112e30144",
+          "model": "qwen3.5-flash",
+          "usage": {
+            "prompt_tokens": 1924,
+            "completion_tokens": 42,
+            "total_tokens": 1966,
+            "completion_tokens_details": {
+              "text_tokens": 42
+            },
+            "prompt_tokens_details": {
+              "image_tokens": 1026,
+              "text_tokens": 898
+            }
+          },
+          "finish_reason": "stop",
+          "observation": {
+            "itemName": "香蕉皮",
+            "enItemName": "banana peel",
+            "ruleKey": "banana",
+            "certain": true,
+            "singleItem": true,
+            "conditionsMet": true
+          }
+        }
+      ],
+      "started_at": "2026-10-31T01:28:20.266285+08:00",
+      "flask_status": 200,
+      "response": {
+        "applicableConditions": "One banana peel; no packaging or other mixed waste.",
+        "category": "厨余垃圾",
+        "disposalGuide": "沥干水分，去除塑料袋等外包装后投放厨余垃圾。",
+        "enApplicableConditions": "One banana peel; no packaging or other mixed waste.",
+        "enDisposalGuide": "Drain liquids and remove plastic bags or other packaging before placing in food waste.",
+        "enItemName": "banana peel",
+        "enReason": "Banana peel is perishable fruit peel and belongs to food waste.",
+        "itemName": "香蕉皮",
+        "matchedKey": "banana",
+        "quiz": {
+          "enExplanation": "Official Luohu guidance asks for food waste to be drained and removed from plastic packaging.",
+          "enQuestion": "What is the most important step before throwing a banana peel into the green bin?",
+          "explanation": "深圳罗湖官方说明：厨余垃圾投放前沥干水分，并去除塑料袋等外包装。",
+          "id": "q_banana_reviewed_v2",
+          "options": [
+            {
+              "enText": "A. Throw it in while sealed in a plastic bag",
+              "isCorrect": false,
+              "text": "A. 用塑料袋密封后直接整袋扔入"
+            },
+            {
+              "enText": "B. Drain excess liquid and empty it from the bag",
+              "isCorrect": true,
+              "text": "B. 尽可能沥干水分，破袋投放"
+            },
+            {
+              "enText": "C. Dry it completely in the sun",
+              "isCorrect": false,
+              "text": "C. 用日光暴晒干透"
+            }
+          ],
+          "question": "将香蕉皮扔进厨余垃圾桶前，最重要的预处理步骤是？",
+          "sourceUrl": "https://www.szlh.gov.cn/zmhd/wdzsk/content/post_12679202.html",
+          "verified": true
+        },
+        "reason": "香蕉皮是容易腐烂的瓜果皮，属于厨余垃圾。",
+        "ruleVerified": true,
+        "sourceUrl": "https://www.szlh.gov.cn/zmhd/wdzsk/content/post_12679202.html"
+      },
+      "displayed_item": "香蕉皮",
+      "displayed_category": "厨余垃圾",
+      "classification_screenshot": "2026-10-31_live_banana_classification.png",
+      "classification_sha256": "fc5b9f7cb528cfa1b1fa1ee61cc9743f2523ca693a15587c222fda284dc31ee3",
+      "quiz_available": true,
+      "points_before": 0,
+      "points_after": 10,
+      "quiz_question": "将香蕉皮扔进厨余垃圾桶前，最重要的预处理步骤是？",
+      "selected_option": "B. 尽可能沥干水分，破袋投放",
+      "answer_feedback": "🎉 回答正确！获得 +10 环保积分",
+      "quiz_screenshot": "2026-10-31_live_banana_quiz_answer.png",
+      "quiz_sha256": "373ba6c347c87bfbab32fb63716ca1470d1a59934edf8dd5c425a6b57dbf0f91",
+      "english_item": "banana peel",
+      "english_category": "Food Waste"
+    },
+    {
+      "file": "battery.png",
+      "photo_sha256": "e18fb905d37fafd0d5908c9a0f9519a9e5675bbc4367fafae7b44bf718f3de3c",
+      "vendor_responses": [
+        {
+          "http_status": 200,
+          "id": "chatcmpl-813caf4c-7f69-913a-a111-fd0dc52b3c5d",
+          "model": "qwen3.5-flash",
+          "usage": {
+            "prompt_tokens": 1567,
+            "completion_tokens": 46,
+            "total_tokens": 1613,
+            "completion_tokens_details": {
+              "text_tokens": 46
+            },
+            "prompt_tokens_details": {
+              "image_tokens": 669,
+              "text_tokens": 898
+            }
+          },
+          "finish_reason": "stop",
+          "observation": {
+            "itemName": "锂电池",
+            "enItemName": "lithium battery",
+            "ruleKey": "rechargeable_battery",
+            "certain": true,
+            "singleItem": true,
+            "conditionsMet": true
+          }
+        }
+      ],
+      "started_at": "2026-10-31T01:28:26.157202+08:00",
+      "flask_status": 200,
+      "response": {
+        "applicableConditions": "明确识别的生活充电电池；普通碱性干电池不套用此规则。",
+        "category": "有害垃圾",
+        "disposalGuide": "保持电池完好，投放有害垃圾中的废电池收集容器，避免日晒雨淋。",
+        "enApplicableConditions": "Clearly identifiable household RECHARGEABLE battery/cells, supported by readable rechargeable or common 18650 3.7V markings. Several cells of the same type count as one waste type. Not ordinary alkaline dry cells; unknown battery type remains unknown.",
+        "enDisposalGuide": "Keep batteries intact and use a designated hazardous-waste battery container; protect them from sun and rain.",
+        "enItemName": "lithium battery",
+        "enReason": "Shenzhen’s household guide lists used rechargeable batteries as hazardous waste; this does not apply to every battery type.",
+        "itemName": "锂电池",
+        "matchedKey": "rechargeable_battery",
+        "quiz": {
+          "enExplanation": "Collect spent rechargeable batteries separately as hazardous waste and keep them intact. Do not classify every ordinary dry cell as hazardous.",
+          "enQuestion": "Which container should be used for a spent rechargeable battery?",
+          "explanation": "废充电电池按有害垃圾单独收集，保持完好；不能把所有普通干电池一律判为有害垃圾。",
+          "id": "q_rechargeable_battery_sz2024_v1",
+          "options": [
+            {
+              "enText": "A. Food-waste bin",
+              "isCorrect": false,
+              "text": "A. 厨余垃圾桶"
+            },
+            {
+              "enText": "B. Hazardous-waste battery collection container",
+              "isCorrect": true,
+              "text": "B. 有害垃圾的废电池收集容器"
+            },
+            {
+              "enText": "C. Mix with residual waste",
+              "isCorrect": false,
+              "text": "C. 随意混入其他垃圾"
+            }
+          ],
+          "question": "废充电电池应该投放到哪类收集容器？",
+          "sourceUrl": "https://cgj.sz.gov.cn/gkmlpt/content/11/11292/post_11292172.html",
+          "verified": true
+        },
+        "reason": "深圳家庭指引将废充电电池列入有害垃圾；不能将所有类型电池一律这样分类。",
+        "ruleVerified": true,
+        "sourceUrl": "https://cgj.sz.gov.cn/gkmlpt/content/11/11292/post_11292172.html"
+      },
+      "displayed_item": "锂电池",
+      "displayed_category": "有害垃圾",
+      "classification_screenshot": "2026-10-31_live_battery_classification.png",
+      "classification_sha256": "8ec104627a8feb5925f62e8237ea38ee57c084e48c0853cde3ce00e4ff0358f2",
+      "quiz_available": true,
+      "points_before": 10,
+      "points_after": 20,
+      "quiz_question": "废充电电池应该投放到哪类收集容器？",
+      "selected_option": "B. 有害垃圾的废电池收集容器",
+      "answer_feedback": "🎉 回答正确！获得 +10 环保积分",
+      "quiz_screenshot": "2026-10-31_live_battery_quiz_answer.png",
+      "quiz_sha256": "cbbdbed09abc440ccb72d28bbced9f789e6fc59fd8229de5e7fdce47afa086e0",
+      "english_item": "lithium battery",
+      "english_category": "Hazardous Waste"
+    },
+    {
+      "file": "bottle.jpg",
+      "photo_sha256": "895bfc3e6cc94b30195bf05b68791ce49617ce7a5222c7e4d957f3a6919986cd",
+      "vendor_responses": [
+        {
+          "http_status": 200,
+          "id": "chatcmpl-a0279e09-2ee0-9ce3-8818-6c25fc792ac2",
+          "model": "qwen3.5-flash",
+          "usage": {
+            "prompt_tokens": 2056,
+            "completion_tokens": 44,
+            "total_tokens": 2100,
+            "completion_tokens_details": {
+              "text_tokens": 44
+            },
+            "prompt_tokens_details": {
+              "image_tokens": 1158,
+              "text_tokens": 898
+            }
+          },
+          "finish_reason": "stop",
+          "observation": {
+            "itemName": "塑料瓶",
+            "enItemName": "plastic bottle",
+            "ruleKey": "bottle",
+            "certain": true,
+            "singleItem": true,
+            "conditionsMet": true
+          }
+        }
+      ],
+      "started_at": "2026-10-31T01:28:30.958769+08:00",
+      "flask_status": 200,
+      "response": {
+        "applicableConditions": "普通生活塑料饮料瓶；清空和清洁作为投放提示，不要求照片先证明。",
+        "category": "可回收物",
+        "disposalGuide": "清空内容物并保持清洁干燥，投放可回收物收集容器。",
+        "enApplicableConditions": "A confidently recognised ordinary household plastic beverage bottle. No need to prove it is already empty or rinsed; those are disposal steps. Exclude hazardous chemical containers or genuinely unclear item types.",
+        "enDisposalGuide": "Empty the bottle, keep it clean and dry, and use the recyclables container.",
+        "enItemName": "plastic bottle",
+        "enReason": "An empty, clean plastic beverage bottle is recyclable plastic.",
+        "itemName": "塑料瓶",
+        "matchedKey": "bottle",
+        "quiz": {
+          "enExplanation": "Official Luohu guidance asks for recyclable items to be emptied and kept clean and dry.",
+          "enQuestion": "How should this clean recyclable item be prepared?",
+          "explanation": "深圳罗湖官方说明要求可回收物清空内容物，并保持清洁干燥。",
+          "id": "q_bottle_reviewed_v2",
+          "options": [
+            {
+              "enText": "A. Empty contents and keep clean and dry",
+              "isCorrect": true,
+              "text": "A. 清空内容物，保持清洁干燥"
+            },
+            {
+              "enText": "B. Mix with food scraps",
+              "isCorrect": false,
+              "text": "B. 混入食物残渣"
+            },
+            {
+              "enText": "C. Put into food waste",
+              "isCorrect": false,
+              "text": "C. 投入厨余垃圾"
+            }
+          ],
+          "question": "这件清洁的可回收物投放前，应该怎样处理？",
+          "sourceUrl": "https://www.szlh.gov.cn/zmhd/wdzsk/content/post_12679202.html",
+          "verified": true
+        },
+        "reason": "清空且清洁的塑料饮料瓶属于可回收的废塑料。",
+        "ruleVerified": true,
+        "sourceUrl": "https://www.szlh.gov.cn/zmhd/wdzsk/content/post_12679202.html"
+      },
+      "displayed_item": "塑料瓶",
+      "displayed_category": "可回收物",
+      "classification_screenshot": "2026-10-31_live_bottle_classification.png",
+      "classification_sha256": "a3c7070d9a4726db0abf772e80781f0391594336aedc98d1142d43c1119cf02b",
+      "quiz_available": true,
+      "points_before": 20,
+      "points_after": 30,
+      "quiz_question": "这件清洁的可回收物投放前，应该怎样处理？",
+      "selected_option": "A. 清空内容物，保持清洁干燥",
+      "answer_feedback": "🎉 回答正确！获得 +10 环保积分",
+      "quiz_screenshot": "2026-10-31_live_bottle_quiz_answer.png",
+      "quiz_sha256": "fe5b340e28fff1f229c3846a54c1527263d343f9712723daeab916c9ce112fa8",
+      "english_item": "plastic bottle",
+      "english_category": "Recyclables"
+    },
+    {
+      "file": "tissue.jpg",
+      "photo_sha256": "b805980effe2ec9a262236bd6e91008f0439115d8589dda4a0cb5ae1ba39e5ba",
+      "vendor_responses": [
+        {
+          "http_status": 200,
+          "id": "chatcmpl-9c1b8070-7b1f-9c6b-a1a0-f3734fff8ffa",
+          "model": "qwen3.5-flash",
+          "usage": {
+            "prompt_tokens": 1791,
+            "completion_tokens": 42,
+            "total_tokens": 1833,
+            "completion_tokens_details": {
+              "text_tokens": 42
+            },
+            "prompt_tokens_details": {
+              "image_tokens": 893,
+              "text_tokens": 898
+            }
+          },
+          "finish_reason": "stop",
+          "observation": {
+            "itemName": "纸巾",
+            "enItemName": "tissue",
+            "ruleKey": "tissue",
+            "certain": true,
+            "singleItem": true,
+            "conditionsMet": true
+          }
+        }
+      ],
+      "started_at": "2026-10-31T01:28:36.073418+08:00",
+      "flask_status": 200,
+      "response": {
+        "applicableConditions": "One clearly used contaminated household tissue, not medical waste or an unidentified wet wipe.",
+        "category": "其他垃圾",
+        "disposalGuide": "收拢以免散落，投放其他垃圾；医疗废物不在此规则范围内。",
+        "enApplicableConditions": "One clearly used contaminated household tissue, not medical waste or an unidentified wet wipe.",
+        "enDisposalGuide": "Contain it to prevent scattering and use residual waste; medical waste is outside this rule.",
+        "enItemName": "tissue",
+        "enReason": "Contaminated tissue belongs to residual waste rather than clean recyclable paper.",
+        "itemName": "纸巾",
+        "matchedKey": "tissue",
+        "quiz": {
+          "enExplanation": "Official Luohu guidance lists contaminated tissues as residual waste.",
+          "enQuestion": "Which category covers contaminated household tissues?",
+          "explanation": "深圳罗湖官方说明将被污染的纸巾列入其他垃圾。",
+          "id": "q_tissue_reviewed_v2",
+          "options": [
+            {
+              "enText": "A. Residual waste",
+              "isCorrect": true,
+              "text": "A. 其他垃圾"
+            },
+            {
+              "enText": "B. Recyclables",
+              "isCorrect": false,
+              "text": "B. 可回收物"
+            },
+            {
+              "enText": "C. Food waste",
+              "isCorrect": false,
+              "text": "C. 厨余垃圾"
+            }
+          ],
+          "question": "被污染的生活用纸巾属于哪一类？",
+          "sourceUrl": "https://www.szlh.gov.cn/zmhd/wdzsk/content/post_12679202.html",
+          "verified": true
+        },
+        "reason": "被污染的纸巾属于其他垃圾，不作为清洁废纸回收。",
+        "ruleVerified": true,
+        "sourceUrl": "https://www.szlh.gov.cn/zmhd/wdzsk/content/post_12679202.html"
+      },
+      "displayed_item": "纸巾",
+      "displayed_category": "其他垃圾",
+      "classification_screenshot": "2026-10-31_live_tissue_classification.png",
+      "classification_sha256": "e66fa0861d655f6bd1b18fa2b7d67ee50f490f18ecdfbcefdecf20510ddf417e",
+      "quiz_available": true,
+      "points_before": 30,
+      "points_after": 40,
+      "quiz_question": "被污染的生活用纸巾属于哪一类？",
+      "selected_option": "A. 其他垃圾",
+      "answer_feedback": "🎉 回答正确！获得 +10 环保积分",
+      "quiz_screenshot": "2026-10-31_live_tissue_quiz_answer.png",
+      "quiz_sha256": "0ddc143e8bf9e95d0b0b271f00e38da26132e6711b833deac4c347fa96a79dbb",
+      "english_item": "tissue",
+      "english_category": "Residual Waste"
+    }
+  ],
+  "free_quota_deduction_verified": false,
+  "real_user_study": false,
+  "final_points": 40,
+  "final_tree_stage": "🌿 Lv.2 成长中的小树",
+  "total_vendor_responses": 4,
+  "total_tokens": 7512
+}

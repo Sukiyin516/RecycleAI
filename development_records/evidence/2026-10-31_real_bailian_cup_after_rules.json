@@ -1,0 +1,64 @@
+{
+  "date": "2026-10-31",
+  "started_at": "2026-10-31T01:11:51.043291+08:00",
+  "test_type": "REAL_BAILIAN_API_AFTER_RULE_EXPANSION",
+  "model": "qwen3.5-flash",
+  "endpoint": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+  "source_photo_sha256": "5ce6f86cebb4ea97a5fb137e2bcb6140a2192b464cf800ea1aa0a3d68c5a8d59",
+  "source_description": "User-provided photo of a lidded drink cup with a straw; original photo not copied into repository.",
+  "vendor_requests": [
+    {
+      "http_status": 200,
+      "elapsed_seconds_since_test_start": 8.65,
+      "id": "chatcmpl-ee868e55-78ae-9b5e-8d8d-8c81c81c29bb",
+      "model": "qwen3.5-flash",
+      "usage": {
+        "prompt_tokens": 1674,
+        "completion_tokens": 43,
+        "total_tokens": 1717,
+        "completion_tokens_details": {
+          "text_tokens": 43
+        },
+        "prompt_tokens_details": {
+          "image_tokens": 882,
+          "text_tokens": 792
+        }
+      },
+      "finish_reason": "stop",
+      "validated_observation": {
+        "itemName": "塑料杯",
+        "enItemName": "plastic cup",
+        "ruleKey": "unknown",
+        "certain": true,
+        "singleItem": true,
+        "conditionsMet": false
+      }
+    }
+  ],
+  "flask_response": {
+    "category": "暂时无法确定",
+    "disposalGuide": "请将不同组件分开，并补拍材质、内部及污染状态清晰的单件照片；向当地分类投放管理人核实后再投放。",
+    "enDisposalGuide": "Separate different components and photograph one item with clear material, interior and contamination evidence. Verify with your local sorting manager before disposal.",
+    "enItemName": "plastic cup",
+    "enReason": "Image evidence is insufficient or no reviewed local rule covers this item.",
+    "itemName": "塑料杯",
+    "matchedKey": null,
+    "reason": "照片信息不足，或该物品没有本项目已核实的分类规则。",
+    "ruleVerified": false
+  },
+  "real_user_study": false,
+  "free_quota_verified": false,
+  "app_modified_by_live_test": false,
+  "rules_count": 16,
+  "authorization": "User explicitly confirmed one real request after offline tests.",
+  "flask_http_status": 200,
+  "displayed_item_name": "塑料杯",
+  "displayed_category": "暂时无法确定",
+  "quiz_visible": false,
+  "displayed_en_item_name": "plastic cup",
+  "displayed_en_category": "Uncertain",
+  "screenshot": "2026-10-31_real_bailian_cup_after_rules.png",
+  "screenshot_sha256": "4ace2102ee6e9279e3a9fb8a641763bd68015a02c06d8f5ebc0e263a49a1c17f",
+  "finished_at": "2026-10-31T01:12:07.305365+08:00",
+  "total_elapsed_seconds": 16.26
+}

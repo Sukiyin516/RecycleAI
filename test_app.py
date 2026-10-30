@@ -5,10 +5,12 @@ import json
 import os
 import unittest
 import httpx
+from pathlib import Path
+from pydantic import ValidationError
 from unittest.mock import patch, MagicMock
 
 from PIL import Image
-from app import app, Observation, RULES
+from app import app, Observation, RULES, decode_image, provider_settings, BEIJING_BASE_URL
 
 
 def sample_image():
@@ -21,7 +23,7 @@ class BackendTests(unittest.TestCase):
     def setUp(self):
         self.client = app.test_client()
         self.env = patch.dict(os.environ, {'DASHSCOPE_API_KEY': '',
-            'DASHSCOPE_BASE_URL': 'https://test-workspace.cn-beijing.maas.aliyuncs.com/compatible-mode/v1',
+            'DASHSCOPE_BASE_URL': BEIJING_BASE_URL,
             'DASHSCOPE_MODEL': 'qwen3.5-flash'})
         self.env.start()
         self.addCleanup(self.env.stop)
@@ -95,6 +97,10 @@ class BackendTests(unittest.TestCase):
         sent = client.post.call_args.kwargs
         self.assertEqual(sent['json']['model'], 'qwen3.5-flash')
         self.assertFalse(sent['json']['enable_thinking'])
+        self.assertFalse(sent['json']['stream'])
+        self.assertEqual(sent['json']['max_tokens'], 512)
+        self.assertEqual(sent['json']['response_format'], {'type':'json_object'})
+        self.assertEqual(client.post.call_args.args[0], BEIJING_BASE_URL + '/chat/completions')
         self.assertTrue(sent['json']['messages'][0]['content'][0]['image_url']['url'].startswith('data:image/jpeg;base64,'))
         self.assertEqual(sent['headers']['Authorization'], 'Bearer test-only')
         for text in ('', '{}', 'not JSON', None):
@@ -121,10 +127,95 @@ class BackendTests(unittest.TestCase):
         self.assertEqual(self.post().status_code, 502)
         client.post.reset_mock()
         for url in ('', 'https://{WorkspaceId}.cn-beijing.maas.aliyuncs.com/compatible-mode/v1',
-                    'http://dashscope.aliyuncs.com/compatible-mode/v1', 'https://example.com/compatible-mode/v1'):
+                    'http://dashscope.aliyuncs.com/compatible-mode/v1', 'https://example.com/compatible-mode/v1',
+                    'https://dashscope-intl.aliyuncs.com/compatible-mode/v1',
+                    'https://space.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1',
+                    'https://dashscope.aliyuncs.com:bad/compatible-mode/v1'):
             os.environ['DASHSCOPE_BASE_URL'] = url
             self.assertEqual(self.post().json['error']['code'], 'PROVIDER_CONFIG_ERROR')
         client.post.assert_not_called()
+
+    def test_beijing_defaults_and_model_guard(self):
+        os.environ.pop('DASHSCOPE_BASE_URL', None)
+        os.environ.pop('DASHSCOPE_MODEL', None)
+        self.assertEqual(provider_settings(), (BEIJING_BASE_URL, 'qwen3.5-flash'))
+        os.environ['DASHSCOPE_BASE_URL'] = 'https://demo.cn-beijing.maas.aliyuncs.com/compatible-mode/v1/'
+        self.assertEqual(provider_settings()[1], 'qwen3.5-flash')
+        os.environ['DASHSCOPE_API_KEY'] = 'test-only'
+        os.environ['DASHSCOPE_MODEL'] = 'qwen-plus'
+        with patch('app.httpx.Client') as client:
+            self.assertEqual(self.post().json['error']['code'], 'PROVIDER_CONFIG_ERROR')
+            client.assert_not_called()
+
+    def test_large_image_resize(self):
+        image = io.BytesIO()
+        Image.new('RGB', (2000,1000), 'green').save(image,'PNG')
+        raw, mime = decode_image('data:image/png;base64,' + base64.b64encode(image.getvalue()).decode())
+        with Image.open(io.BytesIO(raw)) as result:
+            self.assertEqual(result.size, (1280,640))
+        self.assertEqual(mime, 'image/jpeg')
+
+    def test_reviewed_rules_and_quizzes(self):
+        ids = []
+        for key, rule in RULES.items():
+            for field in ('itemName','enItemName','category','reason','enReason',
+                          'disposalGuide','enDisposalGuide','applicableConditions','sourceUrl',
+                          'sourceTitle','sourceScope','verificationStatus','reviewedAt'):
+                self.assertTrue(rule.get(field), (key,field))
+            self.assertEqual(rule['verificationStatus'], 'verified')
+            self.assertIn('.gov.cn/', rule['sourceUrl'])
+            quiz = rule['quiz']
+            self.assertTrue(quiz['verified'])
+            self.assertEqual(len(quiz['options']), 3)
+            self.assertEqual(sum(opt['isCorrect'] for opt in quiz['options']), 1)
+            for option in quiz['options']:
+                self.assertTrue(option['text'] and option['enText'])
+            ids.append(quiz['id'])
+        self.assertEqual(len(ids), len(set(ids)))
+
+    @patch('app.recognize')
+    def test_new_rule_quizzes_and_safety_gates(self, recognize):
+        os.environ['DASHSCOPE_API_KEY'] = 'test-only'
+        original = {'bottle','can','box','banana','tissue','alkaline'}
+        for key in set(RULES) - original:
+            fields = dict(itemName=RULES[key]['itemName'],enItemName=RULES[key]['enItemName'],
+                          ruleKey=key,certain=True,singleItem=True,conditionsMet=True)
+            recognize.return_value = Observation(**fields)
+            result = self.post().json
+            self.assertEqual(result['matchedKey'], key)
+            self.assertEqual(result['category'], RULES[key]['category'])
+            self.assertEqual(result['quiz'], RULES[key]['quiz'])
+            for gate in ('certain','singleItem','conditionsMet'):
+                recognize.return_value = Observation(**{**fields,gate:False})
+                result = self.post().json
+                if key == 'plastic_cup_clean' and gate != 'certain':
+                    self.assertEqual(result['category'], '可回收物')
+                    continue
+                self.assertEqual(result['category'], '暂时无法确定')
+                self.assertNotIn('quiz',result)
+        recognize.return_value = Observation(itemName='塑料杯',enItemName='plastic cup',
+            ruleKey='plastic_cup_clean',certain=True,singleItem=True,conditionsMet=True)
+        with patch.dict(RULES['plastic_cup_clean'], {'verificationStatus':'pending'}):
+            self.assertEqual(self.post().json['category'],'暂时无法确定')
+        with self.assertRaises(ValidationError):
+            Observation(itemName='纸杯',enItemName='paper cup',ruleKey='unreviewed_paper_cup',
+                        certain=True,singleItem=True,conditionsMet=True)
+
+    def test_original_evidence_preserved_and_simple_cup_replay(self):
+        from app import build_result
+        import hashlib
+        root = Path(__file__).resolve().parent
+        before = json.loads((root/'development_records/evidence/2026-10-31_rules_expansion_before.json').read_text(encoding='utf-8'))
+        evidence = root/'development_records/evidence/2026-10-31_real_bailian_cup_test.json'
+        image = root/'development_records/screenshots/2026-10-31_real_bailian_cup_result.png'
+        self.assertEqual(hashlib.sha256(evidence.read_bytes()).hexdigest(),before['original_result_sha256'])
+        self.assertEqual(hashlib.sha256(image.read_bytes()).hexdigest(),before['original_screenshot_sha256'])
+        observation=json.loads(evidence.read_text(encoding='utf-8'))['vendor_requests'][0]['validated_observation']
+        # 用户现要求普通塑料杯明确名称直接匹配；仅离线重放，不改历史真实响应。
+        result=build_result(Observation(**observation))
+        self.assertEqual(result['category'],'可回收物')
+        self.assertEqual(result['matchedKey'],'plastic_cup_clean')
+        self.assertTrue(result['quiz']['verified'])
 
 
 if __name__ == '__main__':

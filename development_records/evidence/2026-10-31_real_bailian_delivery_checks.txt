@@ -1,0 +1,9 @@
+2026-10-31 task E checks
+PASS: exactly one actual vendor response, HTTP 200; local Flask 200.
+PASS: model output plastic cup; no local rule matched; category uncertain and quiz hidden.
+PASS: English item/category rendered; Chinese restored for saved screenshot.
+PASS: supplier token usage totals1238; screenshot SHA256 matches.
+PASS: 99 local documentation links exist; daily log keeps six ordered sections.
+PASS: local .env ignored/untracked; exact local key not present in tracked or publishable text files checked. Credential value never printed.
+NOT VERIFIED: material accuracy, definitive cup category, larger-sample accuracy, mainland Shenzhen network, learning outcomes, billing/free-quota deduction.
+No new real request made by this validation. No commit or push executed by this task.

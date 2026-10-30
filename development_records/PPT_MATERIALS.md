@@ -1,6 +1,6 @@
 # RecycleAI PPT 素材库
 
-课程：香港教育大学 INT6065 Artificial Intelligence in Education。以下为简洁中文素材，便于以后制作英文Presentation；没有生成最终PPT。证据基线：Gemini提交727501e/8016f95；本轮工作期间观察到百炼已提交d92f46d、Gemini文档已提交9aa5aea；首版记录已在2c9b7cf，最终更正仍有未提交内容，不能使用8016f95冒充百炼版本。所有截图均是网页/本地演示/错误路径，不是实际云端识别成功证据。
+课程：香港教育大学 INT6065 Artificial Intelligence in Education。以下为简洁中文素材，便于以后制作英文Presentation；没有生成最终PPT。证据基线：Gemini提交727501e/8016f95；本轮工作期间观察到百炼已提交d92f46d、Gemini文档已提交9aa5aea；首版记录已在2c9b7cf，最终更正仍有未提交内容，不能使用8016f95冒充百炼版本。除任务E的单次真实API返回“不确定”截图外，其他截图为本地演示/错误路径。任务E证明一次连通，不证明物品材质及类别准确。
 
 ## 1. Problem Identification
 
@@ -16,18 +16,30 @@
 
 ## 3. Prototype Development
 
+- **游戏化成长展示（任务I）**：实际答对6道题，每题+10，取得0/30/60分三种树形；重复领奖被阻止，刷新保存。可直接使用[三阶段截图及+10奖励图](evidence/2026-10-31_tree_growth_summary.md)。这是奖励机制验证，不是学习效果研究；没有新增AI调用。
+
 - 顺序：早期HTML原型 → 已修复HTML → Gemini Flask接入 → Git规范 → Gemini独立备份/main百炼 → 每日记录机制。[历史阶段索引](HISTORY.md)。早期原型和修复实际日期待补，不能制作虚构的精确时间轴。
 - Gemini阶段：[归档主页](screenshots/2026-10-29_gemini_home_archived.png)；百炼阶段：[归档主页](screenshots/2026-10-31_bailian_home_archived.png)。可对比保留界面及供应商提示，不能标为同一天拍摄的修复前后实验。
 - Git确切日期：10月30日首次提交727501e，后有8016f95规范提交；10月31日本轮开始时迁移未提交，工作期间出现d92f46d/9aa5aea，详见当日日志。[10月30日日志](daily/2026-10-30.md)。
 
 ## 4. Technical Feasibility
 
+- **四张图片真实演示（任务H）**：香蕉皮/充电电池/塑料瓶/纸巾分别得到厨余/有害/可回收/其他建议；各完成1道三选一题，最终40分/Lv.2。共4次真实API，7512 Token，已保存8张分类/答题截图。[直接选取PPT截图](evidence/2026-10-31_four_live_picture_summary.md)。是开发演示验证，不是居民学习效果或大样本准确率实验。
+
+- 2026-10-31任务E实测：用户饮料杯照片经真实北京qwen3.5-flash返回200；模型称“塑料杯”，但材质未核实且无匹配规则，网页显示不确定、无测验，双语结果切换正常。供应商usage总1238 Token（输入1195、输出43）；不代表费用或免费额度已验证。[真实证据](evidence/2026-10-31_real_bailian_cup_test.json)、[实测结果截图](screenshots/2026-10-31_real_bailian_cup_result.png)。适合PPT标注“Live API connectivity verified; waste category unresolved”。
+
+- 2026-10-31任务D补充：依据用户提供的官方文档将默认接入修正为北京标准域名，后端限制北京/qwen3.5-flash。图片缩放、关闭思考、短JSON和512输出上限用于控制请求规模，未实测节省比例或费用。10项离线及浏览器回归通过；用户报告已申请Key、剩余免费额度和用完即停设置，但真实API和免费扣量仍待验证。[配置/截图证据](evidence/2026-10-31_beijing_api_configuration.json)、[当日日志任务D](daily/2026-10-31.md)。
+
 - 本地Windows/Python/Flask可运行；网页通过/api/classify发送Data URL；限制图片格式、大小、像素及元数据；只监听本机。[运行说明](../README.md)、[app.py](../app.py)。
 - 旧记录：Gemini7组离线测试；百炼8组离线/模拟测试及浏览器回归通过。当前任务实拍验证主页、本地香蕉皮、缺Key错误。[旧测试文件](../TEST_RESULTS.md)、[10月31日Testing](daily/2026-10-31.md)。这不是最新重复执行全部测试，也不证明真实API连通。
 - 适合展示：[缺密钥错误](screenshots/2026-10-31_missing_bailian_key.png)和[本地香蕉皮演示](screenshots/2026-10-31_local_demo_banana.png)。图注注明“Local backend error test”和“Local demo; no AI call”。
-- 待补：真实Key下的成功响应、延迟、费用、识别准确率及跨网络测试。不要在PPT写成已实现的实验结论。
+- 任务E已有一次真实Key响应（200），但纯模型延迟、费用、识别准确率及跨网络测试仍待验证；不能将单张照片当作完整实验。
 
 ## 5. Problems & Iterations
+
+- **课堂Demo反馈后的简化**：规则从6扩至16（新增10条）。严格后测仍不确定（真实1717 Token），用户要求普通塑料杯/瓶直接按已知名称匹配，把清空清洁放题目。已改为“AI分类建议”，用3个代表场景验证问答和积分；简化后的杯子可回收物截图为本地重放，不是第三次真实调用。[完整前后对比](iterations/2026-10-31_expanding_rules.md)、[本地重放图](screenshots/2026-10-31_simple_cup_local_replay.png)。可用英文："We expanded the verified rules, then simplified common-item matching for a classroom demo. Cleaning steps became learning prompts rather than recognition barriers. Results are AI sorting suggestions, not guarantees."
+
+- **Design Iteration — Expanding Waste Classification Rules（先记录原始问题）**：真实API已返回饮料杯相关名称，但杯体材质未核实且原6条规则无匹配，因此保持不确定。拟根据深圳官方资料扩大条件化规则及双语知识题，而不是把图像识别等同正确分类。[完整迭代记录](iterations/2026-10-31_expanding_rules.md)、[不可覆盖的真实前测截图](screenshots/2026-10-31_real_bailian_cup_result.png)。后续结果单独追加，不覆盖前测。
 
 - 安全与规则：用户明确要求失败不造假、电池不能一律判有害；后端错误不回退演示，未核实电池暂停知识题。[原文](prompts/2026-10-29_01_gemini_backend.md)、[10月29日问题记录](daily/2026-10-29.md)。
 - 百炼迁移时精确匹配缺Key提示的浏览器测试失败：修正多余空格后重测通过；属于开发自行排查，没有额外用户Prompt。[10月31日问题与测试](daily/2026-10-31.md)。当时失败截图待补，不用今天的页面冒充修复前现场。
@@ -49,7 +61,7 @@ We initially selected Gemini for its image-understanding capabilities to analyse
 ## 7. Limitations & Reflection
 
 - 小白名单、图像和材质歧义、混合垃圾、模型可能误认；Pydantic只能验证结构，不能保证识别或现实规则正确。[规则](../rules.json)、[后端](../app.py)。
-- 当前真实Gemini和百炼识别均缺验证；不能比较两模型准确率、速度或费用。[测试记录](../TEST_RESULTS.md)。
-- 游戏化设计可以展示，但未证明促进学习；五道核实题最多50分，60分树阶段只用合成状态验证。需要更多有来源的题目才能自然升级。[日志](daily/2026-10-31.md)、[演示50分图](screenshots/2026-10-31_bailian_demo_archived.png)。
+- Gemini尚未真实验证；百炼仅单张照片首次连通（任务E），未知规则保持不确定，材质未人工核实，仍不能比较两模型准确率、速度或费用。[测试记录](../TEST_RESULTS.md)。
+- 游戏化设计可以展示，但未证明促进学习；该历史阶段五题最多50分；任务F已扩至16题，并通过模拟识别后的实际答题流程达到Lv.3，树机制不变。[日志](daily/2026-10-31.md)、[演示50分图](screenshots/2026-10-31_bailian_demo_archived.png)。
 - 伦理与隐私：照片交给外部AI处理，必须提示使用者；密钥后端保存、截图和Prompt脱敏；规则不确定应坦诚说明，避免用生成答案误导投放。[规范](../AGENTS.md)、[原始安全要求](prompts/2026-10-31_02_record_mechanism.md)。
 - 反思方向（计划）：讨论AI辅助开发与人工核实的分工、保守规则覆盖率和用户体验取舍、测试证据和真实学习效果的区别。不要将反思设想写成已完成调查。

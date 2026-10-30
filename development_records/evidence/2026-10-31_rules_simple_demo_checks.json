@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-31",
+  "original_live_result_and_screenshot_unchanged": true,
+  "original_rules": 6,
+  "rules_now": 16,
+  "new_rules": 10,
+  "backend_tests": 13,
+  "full_browser_regression_before_simplification": "passed (mock recognition)",
+  "simple_demo_representative_browser_cases": [
+    "plastic cup",
+    "plastic bottle",
+    "unknown"
+  ],
+  "new_real_requests_authorized": 1,
+  "new_real_requests_executed": 1,
+  "real_after_result": "暂时无法确定",
+  "real_after_tokens": 1717,
+  "simplified_result_test": "local replay only, no new API request",
+  "layout_unchanged_except_requested_title": true,
+  "tree_and_points_functions_unchanged": true,
+  "related_local_links_checked": 137,
+  "secrets_excluded": true,
+  "simplified_screenshot_sha256": "19bf31f955eee0b2d58bf7a117d8fb031ad552b20729ff2a753a31bf3a6002fb",
+  "no_commit_or_push_by_assistant": true
+}

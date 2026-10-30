@@ -5,10 +5,43 @@
     "enReason": "An empty, clean plastic beverage bottle is recyclable plastic.",
     "disposalGuide": "清空内容物并保持清洁干燥，投放可回收物收集容器。",
     "enDisposalGuide": "Empty the bottle, keep it clean and dry, and use the recyclables container.",
-    "matchCondition": "One empty clean plastic beverage bottle, clearly plastic; no chemicals, mixed materials or obvious heavy contamination.",
+    "matchCondition": "A confidently recognised ordinary household plastic beverage bottle. No need to prove it is already empty or rinsed; those are disposal steps. Exclude hazardous chemical containers or genuinely unclear item types.",
     "matchedKey": "bottle",
     "sourceUrl": "https://www.szlh.gov.cn/zmhd/wdzsk/content/post_12679202.html",
-    "reviewedAt": "2026-10-29"
+    "reviewedAt": "2026-10-29",
+    "itemName": "塑料饮料瓶",
+    "enItemName": "Plastic beverage bottle",
+    "verificationStatus": "verified",
+    "ruleVerified": true,
+    "applicableConditions": "普通生活塑料饮料瓶；清空和清洁作为投放提示，不要求照片先证明。",
+    "sourceTitle": "深圳罗湖：垃圾分类的具体标准是什么？",
+    "sourceScope": "Explicit item or material guidance, limited to the stated conditions.",
+    "quiz": {
+      "id": "q_bottle_reviewed_v2",
+      "question": "这件清洁的可回收物投放前，应该怎样处理？",
+      "enQuestion": "How should this clean recyclable item be prepared?",
+      "options": [
+        {
+          "text": "A. 清空内容物，保持清洁干燥",
+          "enText": "A. Empty contents and keep clean and dry",
+          "isCorrect": true
+        },
+        {
+          "text": "B. 混入食物残渣",
+          "enText": "B. Mix with food scraps",
+          "isCorrect": false
+        },
+        {
+          "text": "C. 投入厨余垃圾",
+          "enText": "C. Put into food waste",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "深圳罗湖官方说明要求可回收物清空内容物，并保持清洁干燥。",
+      "enExplanation": "Official Luohu guidance asks for recyclable items to be emptied and kept clean and dry.",
+      "sourceUrl": "https://www.szlh.gov.cn/zmhd/wdzsk/content/post_12679202.html",
+      "verified": true
+    }
   },
   "can": {
     "category": "可回收物",
@@ -19,7 +52,40 @@
     "matchCondition": "One empty clean metal beverage can; not an aerosol or chemical container.",
     "matchedKey": "can",
     "sourceUrl": "https://www.szlh.gov.cn/zmhd/wdzsk/content/post_12679202.html",
-    "reviewedAt": "2026-10-29"
+    "reviewedAt": "2026-10-29",
+    "itemName": "金属饮料罐",
+    "enItemName": "Metal beverage can",
+    "verificationStatus": "verified",
+    "ruleVerified": true,
+    "applicableConditions": "One empty clean metal beverage can; not an aerosol or chemical container.",
+    "sourceTitle": "深圳罗湖：垃圾分类的具体标准是什么？",
+    "sourceScope": "Explicit item or material guidance, limited to the stated conditions.",
+    "quiz": {
+      "id": "q_can_reviewed_v2",
+      "question": "这件清洁的可回收物投放前，应该怎样处理？",
+      "enQuestion": "How should this clean recyclable item be prepared?",
+      "options": [
+        {
+          "text": "A. 清空内容物，保持清洁干燥",
+          "enText": "A. Empty contents and keep clean and dry",
+          "isCorrect": true
+        },
+        {
+          "text": "B. 混入食物残渣",
+          "enText": "B. Mix with food scraps",
+          "isCorrect": false
+        },
+        {
+          "text": "C. 投入厨余垃圾",
+          "enText": "C. Put into food waste",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "深圳罗湖官方说明要求可回收物清空内容物，并保持清洁干燥。",
+      "enExplanation": "Official Luohu guidance asks for recyclable items to be emptied and kept clean and dry.",
+      "sourceUrl": "https://www.szlh.gov.cn/zmhd/wdzsk/content/post_12679202.html",
+      "verified": true
+    }
   },
   "box": {
     "category": "可回收物",
@@ -30,7 +96,40 @@
     "matchCondition": "One clean dry cardboard box without oil, food or mixed-material coating.",
     "matchedKey": "box",
     "sourceUrl": "https://www.szlh.gov.cn/zmhd/wdzsk/content/post_12679202.html",
-    "reviewedAt": "2026-10-29"
+    "reviewedAt": "2026-10-29",
+    "itemName": "清洁纸箱",
+    "enItemName": "Clean cardboard box",
+    "verificationStatus": "verified",
+    "ruleVerified": true,
+    "applicableConditions": "One clean dry cardboard box without oil, food or mixed-material coating.",
+    "sourceTitle": "深圳罗湖：垃圾分类的具体标准是什么？",
+    "sourceScope": "Explicit item or material guidance, limited to the stated conditions.",
+    "quiz": {
+      "id": "q_box_reviewed_v2",
+      "question": "这件清洁的可回收物投放前，应该怎样处理？",
+      "enQuestion": "How should this clean recyclable item be prepared?",
+      "options": [
+        {
+          "text": "A. 清空内容物，保持清洁干燥",
+          "enText": "A. Empty contents and keep clean and dry",
+          "isCorrect": true
+        },
+        {
+          "text": "B. 混入食物残渣",
+          "enText": "B. Mix with food scraps",
+          "isCorrect": false
+        },
+        {
+          "text": "C. 投入厨余垃圾",
+          "enText": "C. Put into food waste",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "深圳罗湖官方说明要求可回收物清空内容物，并保持清洁干燥。",
+      "enExplanation": "Official Luohu guidance asks for recyclable items to be emptied and kept clean and dry.",
+      "sourceUrl": "https://www.szlh.gov.cn/zmhd/wdzsk/content/post_12679202.html",
+      "verified": true
+    }
   },
   "banana": {
     "category": "厨余垃圾",
@@ -41,7 +140,40 @@
     "matchCondition": "One banana peel; no packaging or other mixed waste.",
     "matchedKey": "banana",
     "sourceUrl": "https://www.szlh.gov.cn/zmhd/wdzsk/content/post_12679202.html",
-    "reviewedAt": "2026-10-29"
+    "reviewedAt": "2026-10-29",
+    "itemName": "香蕉皮",
+    "enItemName": "Banana peel",
+    "verificationStatus": "verified",
+    "ruleVerified": true,
+    "applicableConditions": "One banana peel; no packaging or other mixed waste.",
+    "sourceTitle": "深圳罗湖：垃圾分类的具体标准是什么？",
+    "sourceScope": "Explicit item or material guidance, limited to the stated conditions.",
+    "quiz": {
+      "id": "q_banana_reviewed_v2",
+      "question": "将香蕉皮扔进厨余垃圾桶前，最重要的预处理步骤是？",
+      "enQuestion": "What is the most important step before throwing a banana peel into the green bin?",
+      "options": [
+        {
+          "text": "A. 用塑料袋密封后直接整袋扔入",
+          "isCorrect": false,
+          "enText": "A. Throw it in while sealed in a plastic bag"
+        },
+        {
+          "text": "B. 尽可能沥干水分，破袋投放",
+          "isCorrect": true,
+          "enText": "B. Drain excess liquid and empty it from the bag"
+        },
+        {
+          "text": "C. 用日光暴晒干透",
+          "isCorrect": false,
+          "enText": "C. Dry it completely in the sun"
+        }
+      ],
+      "explanation": "深圳罗湖官方说明：厨余垃圾投放前沥干水分，并去除塑料袋等外包装。",
+      "enExplanation": "Official Luohu guidance asks for food waste to be drained and removed from plastic packaging.",
+      "sourceUrl": "https://www.szlh.gov.cn/zmhd/wdzsk/content/post_12679202.html",
+      "verified": true
+    }
   },
   "tissue": {
     "category": "其他垃圾",
@@ -52,7 +184,40 @@
     "matchCondition": "One clearly used contaminated household tissue, not medical waste or an unidentified wet wipe.",
     "matchedKey": "tissue",
     "sourceUrl": "https://www.szlh.gov.cn/zmhd/wdzsk/content/post_12679202.html",
-    "reviewedAt": "2026-10-29"
+    "reviewedAt": "2026-10-29",
+    "itemName": "被污染的生活用纸巾",
+    "enItemName": "Contaminated household tissue",
+    "verificationStatus": "verified",
+    "ruleVerified": true,
+    "applicableConditions": "One clearly used contaminated household tissue, not medical waste or an unidentified wet wipe.",
+    "sourceTitle": "深圳罗湖：垃圾分类的具体标准是什么？",
+    "sourceScope": "Explicit item or material guidance, limited to the stated conditions.",
+    "quiz": {
+      "id": "q_tissue_reviewed_v2",
+      "question": "被污染的生活用纸巾属于哪一类？",
+      "enQuestion": "Which category covers contaminated household tissues?",
+      "options": [
+        {
+          "text": "A. 其他垃圾",
+          "enText": "A. Residual waste",
+          "isCorrect": true
+        },
+        {
+          "text": "B. 可回收物",
+          "enText": "B. Recyclables",
+          "isCorrect": false
+        },
+        {
+          "text": "C. 厨余垃圾",
+          "enText": "C. Food waste",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "深圳罗湖官方说明将被污染的纸巾列入其他垃圾。",
+      "enExplanation": "Official Luohu guidance lists contaminated tissues as residual waste.",
+      "sourceUrl": "https://www.szlh.gov.cn/zmhd/wdzsk/content/post_12679202.html",
+      "verified": true
+    }
   },
   "alkaline": {
     "category": "其他垃圾",
@@ -61,8 +226,536 @@
     "disposalGuide": "仅适用于确认无汞的普通碱性干电池；类型不明、充电或破损电池请向投放管理人核实。",
     "enDisposalGuide": "Only for confirmed mercury-free ordinary alkaline dry cells. Ask the sorting manager about unknown, rechargeable or damaged batteries.",
     "matchCondition": "One intact ordinary non-rechargeable alkaline dry cell with clearly readable alkaline and mercury-free labels; never infer chemistry from shape.",
-    "matchedKey": null,
+    "matchedKey": "alkaline",
     "sourceUrl": "https://www.szlh.gov.cn/zmhd/wdzsk/content/post_12679202.html",
-    "reviewedAt": "2026-10-29"
+    "reviewedAt": "2026-10-29",
+    "itemName": "已确认无汞碱性干电池",
+    "enItemName": "Confirmed mercury-free alkaline dry cell",
+    "verificationStatus": "verified",
+    "ruleVerified": true,
+    "applicableConditions": "One intact ordinary non-rechargeable alkaline dry cell with clearly readable alkaline and mercury-free labels; never infer chemistry from shape.",
+    "sourceTitle": "深圳罗湖：垃圾分类的具体标准是什么？",
+    "sourceScope": "Explicit item or material guidance, limited to the stated conditions.",
+    "quiz": {
+      "id": "q_alkaline_sz2024_v1",
+      "question": "已确认无汞碱性干电池，在符合结果卡适用条件时，应投放哪类垃圾？",
+      "enQuestion": "For confirmed mercury-free alkaline dry cell, when the conditions on the result card are met, which category applies?",
+      "options": [
+        {
+          "text": "A. 其他垃圾",
+          "enText": "A. Residual waste",
+          "isCorrect": true
+        },
+        {
+          "text": "B. 可回收物",
+          "enText": "B. Recyclables",
+          "isCorrect": false
+        },
+        {
+          "text": "C. 厨余垃圾",
+          "enText": "C. Food waste",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "已确认无汞的普通碱性干电池通常按其他垃圾处理，不能推广到所有电池。",
+      "enExplanation": "Confirmed mercury-free ordinary alkaline dry cells are usually residual waste; this does not apply to all batteries.",
+      "verified": true,
+      "sourceUrl": "https://www.szlh.gov.cn/zmhd/wdzsk/content/post_12679202.html"
+    }
+  },
+  "plastic_cup_clean": {
+    "itemName": "塑料杯",
+    "enItemName": "Plastic cup",
+    "category": "可回收物",
+    "reason": "塑料杯属于深圳家庭指引列示的可回收塑料制品。",
+    "enReason": "Plastic cups are listed among recyclable plastics in Shenzhen’s household sorting guide.",
+    "disposalGuide": "建议投放可回收物。投放前清空饮料、保持清洁干燥，杯盖和吸管按当地指引分开处理。",
+    "enDisposalGuide": "Use recyclables. Empty the drink and keep the cup clean and dry; separate lids and straws according to local guidance.",
+    "matchCondition": "A confidently recognised ordinary household PLASTIC CUP, including a milk-tea cup with its lid or straw. No need to prove emptiness, cleanliness or a readable material label. Unknown item type remains unknown.",
+    "applicableConditions": "明确识别为普通生活塑料杯；清空、清洁等作为投放前的行为提示，不是识别前提。",
+    "matchedKey": "plastic_cup_clean",
+    "sourceUrl": "https://cgj.sz.gov.cn/gkmlpt/content/11/11292/post_11292172.html",
+    "sourceImageUrl": "https://cgj.sz.gov.cn/img/4/4139/4139895/11292172.png",
+    "sourceTitle": "2024年深圳市生活垃圾分类投放指引（家庭版）",
+    "sourceScope": "可回收物→塑料：塑料杯；可回收物投放要求：干净、干燥",
+    "verificationStatus": "verified",
+    "ruleVerified": true,
+    "reviewedAt": "2026-10-31",
+    "quiz": {
+      "id": "q_plastic_cup_clean_sz2024_v1",
+      "question": "塑料杯投放可回收物前，应该怎样处理？",
+      "enQuestion": "How should a plastic cup be prepared before recycling?",
+      "options": [
+        {
+          "text": "A. 清空饮料，保持清洁干燥",
+          "enText": "A. Empty the drink and keep clean and dry",
+          "isCorrect": true
+        },
+        {
+          "text": "B. 连同剩余饮料一起投放",
+          "enText": "B. Leave the drink inside",
+          "isCorrect": false
+        },
+        {
+          "text": "C. 混入食物残渣后投放",
+          "enText": "C. Mix with food scraps",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "投放前清空饮料，保持清洁干燥，避免残留物污染其他可回收物。",
+      "enExplanation": "Empty the drink and keep the cup clean and dry to avoid contaminating other recyclables.",
+      "verified": true,
+      "sourceUrl": "https://cgj.sz.gov.cn/gkmlpt/content/11/11292/post_11292172.html"
+    }
+  },
+  "plastic_cup_soiled": {
+    "itemName": "明显污染的一次性塑料杯杯身",
+    "enItemName": "Visibly soiled disposable plastic cup body",
+    "category": "其他垃圾",
+    "reason": "明显污染且难以回收利用的一次性塑料用品按指引归入其他垃圾。",
+    "enReason": "Visibly contaminated disposable plastic items that cannot be recovered belong to residual waste under the guide.",
+    "disposalGuide": "先分开食物残渣并倒空，受污染杯身按其他垃圾投放；不能将所有塑料杯都这样处理。",
+    "enDisposalGuide": "Separate food residues and empty the cup; place the contaminated body in residual waste. This does not cover every plastic cup.",
+    "matchCondition": "ONE visibly contaminated hard-plastic disposable cup body after contents removed, sticky/oily contamination clearly visible and not clean recyclable; plastic material supported; not a clean cup or closed unknown-content assembly.",
+    "applicableConditions": "仅材质明确且可见明显黏污/油污的空一次性塑料杯身；不适用于清洁可回收杯。",
+    "matchedKey": "plastic_cup_soiled",
+    "sourceUrl": "https://cgj.sz.gov.cn/gkmlpt/content/11/11292/post_11292172.html",
+    "sourceImageUrl": "https://cgj.sz.gov.cn/img/4/4139/4139895/11292172.png",
+    "sourceTitle": "2024年深圳市生活垃圾分类投放指引（家庭版）",
+    "sourceScope": "其他垃圾：已污染的一次性用品、受污染塑料",
+    "verificationStatus": "verified",
+    "ruleVerified": true,
+    "reviewedAt": "2026-10-31",
+    "quiz": {
+      "id": "q_plastic_cup_soiled_sz2024_v1",
+      "question": "明显污染的一次性塑料杯杯身，在符合结果卡适用条件时，应投放哪类垃圾？",
+      "enQuestion": "For visibly soiled disposable plastic cup body, when the conditions on the result card are met, which category applies?",
+      "options": [
+        {
+          "text": "A. 其他垃圾",
+          "enText": "A. Residual waste",
+          "isCorrect": true
+        },
+        {
+          "text": "B. 可回收物",
+          "enText": "B. Recyclables",
+          "isCorrect": false
+        },
+        {
+          "text": "C. 厨余垃圾",
+          "enText": "C. Food waste",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "明显污染且难以回收利用的一次性塑料用品按指引归入其他垃圾。",
+      "enExplanation": "Visibly contaminated disposable plastic items that cannot be recovered belong to residual waste under the guide.",
+      "verified": true,
+      "sourceUrl": "https://cgj.sz.gov.cn/gkmlpt/content/11/11292/post_11292172.html"
+    }
+  },
+  "paper_cup_soiled": {
+    "itemName": "明显污染的一次性纸杯",
+    "enItemName": "Visibly soiled disposable paper cup",
+    "category": "其他垃圾",
+    "reason": "受污染的纸类和一次性用品在家庭指引中列为其他垃圾。",
+    "enReason": "The household guide lists contaminated paper and disposable items as residual waste.",
+    "disposalGuide": "倒空内容物，将受污染的纸杯投放其他垃圾；不将该结论推广到未污染纸杯。",
+    "enDisposalGuide": "Empty the contents and place the contaminated paper cup in residual waste; this does not classify clean paper cups.",
+    "matchCondition": "ONE empty visibly soiled disposable PAPER drink cup, paper identity and food/drink staining clearly supported, not a clean cup, not an unidentified composite or reusable cup.",
+    "applicableConditions": "仅纸质身份明确、已倒空且可见饮料或食物污染的一次性纸杯；未污染纸杯不适用。",
+    "matchedKey": "paper_cup_soiled",
+    "sourceUrl": "https://cgj.sz.gov.cn/gkmlpt/content/11/11292/post_11292172.html",
+    "sourceImageUrl": "https://cgj.sz.gov.cn/img/4/4139/4139895/11292172.png",
+    "sourceTitle": "2024年深圳市生活垃圾分类投放指引（家庭版）",
+    "sourceScope": "其他垃圾：受污染的纸类、已污染的一次性用品",
+    "verificationStatus": "verified",
+    "ruleVerified": true,
+    "reviewedAt": "2026-10-31",
+    "quiz": {
+      "id": "q_paper_cup_soiled_sz2024_v1",
+      "question": "明显污染的一次性纸杯，在符合结果卡适用条件时，应投放哪类垃圾？",
+      "enQuestion": "For visibly soiled disposable paper cup, when the conditions on the result card are met, which category applies?",
+      "options": [
+        {
+          "text": "A. 其他垃圾",
+          "enText": "A. Residual waste",
+          "isCorrect": true
+        },
+        {
+          "text": "B. 可回收物",
+          "enText": "B. Recyclables",
+          "isCorrect": false
+        },
+        {
+          "text": "C. 厨余垃圾",
+          "enText": "C. Food waste",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "受污染的纸类和一次性用品在家庭指引中列为其他垃圾。",
+      "enExplanation": "The household guide lists contaminated paper and disposable items as residual waste.",
+      "verified": true,
+      "sourceUrl": "https://cgj.sz.gov.cn/gkmlpt/content/11/11292/post_11292172.html"
+    }
+  },
+  "plastic_food_box_clean": {
+    "itemName": "清洁硬塑料外卖餐盒",
+    "enItemName": "Clean rigid plastic takeaway container",
+    "category": "可回收物",
+    "reason": "清洁干燥、可回收的塑料盒属于指引列示的可回收塑料制品。",
+    "enReason": "A clean, dry recyclable plastic container is included in the guide’s plastic examples.",
+    "disposalGuide": "清除残留物，保持清洁干燥后投放可回收物；纸盒、泡沫盒和污染盒不适用。",
+    "enDisposalGuide": "Remove residues and keep clean and dry before recycling; paper, foam and dirty boxes are outside this rule.",
+    "matchCondition": "ONE open EMPTY CLEAN DRY rigid plastic food container, plastic material clearly supported, no oil/food contamination; exclude foam/paper/composite boxes and mixed lids/film.",
+    "applicableConditions": "仅清空、清洁、干燥且材质明确的硬塑料餐盒；不包括纸、泡沫或复合餐盒。",
+    "matchedKey": "plastic_food_box_clean",
+    "sourceUrl": "https://cgj.sz.gov.cn/gkmlpt/content/11/11292/post_11292172.html",
+    "sourceImageUrl": "https://cgj.sz.gov.cn/img/4/4139/4139895/11292172.png",
+    "sourceTitle": "2024年深圳市生活垃圾分类投放指引（家庭版）",
+    "sourceScope": "可回收物→塑料：塑料盒；保持干净、干燥",
+    "verificationStatus": "verified",
+    "ruleVerified": true,
+    "reviewedAt": "2026-10-31",
+    "quiz": {
+      "id": "q_plastic_food_box_clean_sz2024_v1",
+      "question": "清洁硬塑料外卖餐盒，在符合结果卡适用条件时，应投放哪类垃圾？",
+      "enQuestion": "For clean rigid plastic takeaway container, when the conditions on the result card are met, which category applies?",
+      "options": [
+        {
+          "text": "A. 可回收物",
+          "enText": "A. Recyclables",
+          "isCorrect": true
+        },
+        {
+          "text": "B. 厨余垃圾",
+          "enText": "B. Food waste",
+          "isCorrect": false
+        },
+        {
+          "text": "C. 有害垃圾",
+          "enText": "C. Hazardous waste",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "清洁干燥、可回收的塑料盒属于指引列示的可回收塑料制品。",
+      "enExplanation": "A clean, dry recyclable plastic container is included in the guide’s plastic examples.",
+      "verified": true,
+      "sourceUrl": "https://cgj.sz.gov.cn/gkmlpt/content/11/11292/post_11292172.html"
+    }
+  },
+  "takeaway_box_soiled": {
+    "itemName": "明显污染的一次性餐盒",
+    "enItemName": "Visibly soiled disposable takeaway box",
+    "category": "其他垃圾",
+    "reason": "受污染且难以回收的纸类及一次性用品属于其他垃圾。",
+    "enReason": "Contaminated paper and disposable items that cannot be recovered belong to residual waste.",
+    "disposalGuide": "分开食物残渣并倒空后，受污染的一次性餐盒投放其他垃圾；清洁可回收塑料盒另行分类。",
+    "enDisposalGuide": "Separate food residues and empty the box, then place the soiled disposable box in residual waste; clean recyclable plastic boxes follow a different rule.",
+    "matchCondition": "ONE empty visibly oil/food-stained disposable paper or plastic takeaway box, nonhazardous household item; no loose food remains; not a clean recyclable container or reusable lunch box.",
+    "applicableConditions": "仅倒空后仍明显沾油污的一次性纸/塑料餐盒；食物残渣应分开，清洁可回收餐盒不适用。",
+    "matchedKey": "takeaway_box_soiled",
+    "sourceUrl": "https://cgj.sz.gov.cn/gkmlpt/content/11/11292/post_11292172.html",
+    "sourceImageUrl": "https://cgj.sz.gov.cn/img/4/4139/4139895/11292172.png",
+    "sourceTitle": "2024年深圳市生活垃圾分类投放指引（家庭版）",
+    "sourceScope": "其他垃圾：受污染纸类、已污染的一次性用品",
+    "verificationStatus": "verified",
+    "ruleVerified": true,
+    "reviewedAt": "2026-10-31",
+    "quiz": {
+      "id": "q_takeaway_box_soiled_sz2024_v1",
+      "question": "明显污染的一次性餐盒，在符合结果卡适用条件时，应投放哪类垃圾？",
+      "enQuestion": "For visibly soiled disposable takeaway box, when the conditions on the result card are met, which category applies?",
+      "options": [
+        {
+          "text": "A. 其他垃圾",
+          "enText": "A. Residual waste",
+          "isCorrect": true
+        },
+        {
+          "text": "B. 可回收物",
+          "enText": "B. Recyclables",
+          "isCorrect": false
+        },
+        {
+          "text": "C. 厨余垃圾",
+          "enText": "C. Food waste",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "受污染且难以回收的纸类及一次性用品属于其他垃圾。",
+      "enExplanation": "Contaminated paper and disposable items that cannot be recovered belong to residual waste.",
+      "verified": true,
+      "sourceUrl": "https://cgj.sz.gov.cn/gkmlpt/content/11/11292/post_11292172.html"
+    }
+  },
+  "plastic_bag_soiled": {
+    "itemName": "脏污塑料袋",
+    "enItemName": "Soiled plastic bag",
+    "category": "其他垃圾",
+    "reason": "受污染且难以回收的塑料袋（膜）在家庭指引中归入其他垃圾。",
+    "enReason": "The household guide places contaminated plastic bags or films that cannot be recovered in residual waste.",
+    "disposalGuide": "倒空并分离内容物，脏污塑料袋投放其他垃圾；未污染塑料袋不套用本规则。",
+    "enDisposalGuide": "Empty and separate the contents, then put the dirty plastic bag in residual waste; clean bags are outside this rule.",
+    "matchCondition": "ONE empty plastic bag with clear oil/food/dirty contamination, no contents, household use; not clean or biodegradable/unknown material bag.",
+    "applicableConditions": "仅已倒空且明显脏污的生活塑料袋；未污染、可降解或材质不明袋不适用。",
+    "matchedKey": "plastic_bag_soiled",
+    "sourceUrl": "https://cgj.sz.gov.cn/gkmlpt/content/11/11292/post_11292172.html",
+    "sourceImageUrl": "https://cgj.sz.gov.cn/img/4/4139/4139895/11292172.png",
+    "sourceTitle": "2024年深圳市生活垃圾分类投放指引（家庭版）",
+    "sourceScope": "其他垃圾说明：受污染的塑料袋（膜）",
+    "verificationStatus": "verified",
+    "ruleVerified": true,
+    "reviewedAt": "2026-10-31",
+    "quiz": {
+      "id": "q_plastic_bag_soiled_sz2024_v1",
+      "question": "脏污塑料袋，在符合结果卡适用条件时，应投放哪类垃圾？",
+      "enQuestion": "For soiled plastic bag, when the conditions on the result card are met, which category applies?",
+      "options": [
+        {
+          "text": "A. 其他垃圾",
+          "enText": "A. Residual waste",
+          "isCorrect": true
+        },
+        {
+          "text": "B. 可回收物",
+          "enText": "B. Recyclables",
+          "isCorrect": false
+        },
+        {
+          "text": "C. 厨余垃圾",
+          "enText": "C. Food waste",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "受污染且难以回收的塑料袋（膜）在家庭指引中归入其他垃圾。",
+      "enExplanation": "The household guide places contaminated plastic bags or films that cannot be recovered in residual waste.",
+      "verified": true,
+      "sourceUrl": "https://cgj.sz.gov.cn/gkmlpt/content/11/11292/post_11292172.html"
+    }
+  },
+  "milk_carton_clean": {
+    "itemName": "清空的清洁牛奶纸盒",
+    "enItemName": "Empty clean milk carton",
+    "category": "可回收物",
+    "reason": "家庭指引在可回收纸类中明确列示奶盒，投放需保持干净、干燥。",
+    "enReason": "The household guide explicitly includes milk cartons among recyclable paper items, to be kept clean and dry.",
+    "disposalGuide": "清空并保持干净干燥，投放可回收物；不推广到所有饮料软包装和材质不明包装。",
+    "enDisposalGuide": "Empty and keep clean and dry, then recycle; do not generalise this to all drink pouches or unidentified packaging.",
+    "matchCondition": "ONE identifiable MILK CARTON, opened and EMPTY CLEAN DRY, no visible food/liquid; label/material supports milk-carton identity; exclude pouches, generic juice boxes, opaque unknown packages and spoiled contents.",
+    "applicableConditions": "仅身份明确、清空且清洁干燥的牛奶纸盒；不推广到所有饮料盒、软袋或含剩余饮品的盒。",
+    "matchedKey": "milk_carton_clean",
+    "sourceUrl": "https://cgj.sz.gov.cn/gkmlpt/content/11/11292/post_11292172.html",
+    "sourceImageUrl": "https://cgj.sz.gov.cn/img/4/4139/4139895/11292172.png",
+    "sourceTitle": "2024年深圳市生活垃圾分类投放指引（家庭版）",
+    "sourceScope": "可回收物→纸类：奶盒；投放要求干净干燥",
+    "verificationStatus": "verified",
+    "ruleVerified": true,
+    "reviewedAt": "2026-10-31",
+    "quiz": {
+      "id": "q_milk_carton_clean_sz2024_v1",
+      "question": "清空的清洁牛奶纸盒，在符合结果卡适用条件时，应投放哪类垃圾？",
+      "enQuestion": "For empty clean milk carton, when the conditions on the result card are met, which category applies?",
+      "options": [
+        {
+          "text": "A. 可回收物",
+          "enText": "A. Recyclables",
+          "isCorrect": true
+        },
+        {
+          "text": "B. 厨余垃圾",
+          "enText": "B. Food waste",
+          "isCorrect": false
+        },
+        {
+          "text": "C. 有害垃圾",
+          "enText": "C. Hazardous waste",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "家庭指引在可回收纸类中明确列示奶盒，投放需保持干净、干燥。",
+      "enExplanation": "The household guide explicitly includes milk cartons among recyclable paper items, to be kept clean and dry.",
+      "verified": true,
+      "sourceUrl": "https://cgj.sz.gov.cn/gkmlpt/content/11/11292/post_11292172.html"
+    }
+  },
+  "glass_bottle": {
+    "itemName": "清洁玻璃瓶",
+    "enItemName": "Clean glass bottle",
+    "category": "可回收物",
+    "reason": "玻璃瓶在家庭指引中列为可回收玻璃制品。",
+    "enReason": "Glass bottles are listed among recyclable glass items in the household guide.",
+    "disposalGuide": "清空并保持清洁干燥，按可回收物投放；不适用于药品、化学品容器或破碎混合物。",
+    "enDisposalGuide": "Empty and keep clean and dry before recycling; medicine/chemical containers and mixed broken waste are excluded.",
+    "matchCondition": "ONE intact empty clean dry household glass bottle with clearly supported glass material; not chemical/medicine container, ceramic or mixed broken pieces.",
+    "applicableConditions": "仅完整、已清空且清洁干燥的生活玻璃瓶；不含药品/化学品容器或陶瓷。",
+    "matchedKey": "glass_bottle",
+    "sourceUrl": "https://cgj.sz.gov.cn/gkmlpt/content/11/11292/post_11292172.html",
+    "sourceImageUrl": "https://cgj.sz.gov.cn/img/4/4139/4139895/11292172.png",
+    "sourceTitle": "2024年深圳市生活垃圾分类投放指引（家庭版）",
+    "sourceScope": "可回收物→玻璃：酒瓶、玻璃调味瓶",
+    "verificationStatus": "verified",
+    "ruleVerified": true,
+    "reviewedAt": "2026-10-31",
+    "quiz": {
+      "id": "q_glass_bottle_sz2024_v1",
+      "question": "清洁玻璃瓶，在符合结果卡适用条件时，应投放哪类垃圾？",
+      "enQuestion": "For clean glass bottle, when the conditions on the result card are met, which category applies?",
+      "options": [
+        {
+          "text": "A. 可回收物",
+          "enText": "A. Recyclables",
+          "isCorrect": true
+        },
+        {
+          "text": "B. 厨余垃圾",
+          "enText": "B. Food waste",
+          "isCorrect": false
+        },
+        {
+          "text": "C. 有害垃圾",
+          "enText": "C. Hazardous waste",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "玻璃瓶在家庭指引中列为可回收玻璃制品。",
+      "enExplanation": "Glass bottles are listed among recyclable glass items in the household guide.",
+      "verified": true,
+      "sourceUrl": "https://cgj.sz.gov.cn/gkmlpt/content/11/11292/post_11292172.html"
+    }
+  },
+  "leftover_rice": {
+    "itemName": "无包装的剩米饭",
+    "enItemName": "Unpackaged leftover rice",
+    "category": "厨余垃圾",
+    "reason": "剩饭剩菜等容易腐烂的食物在家庭指引中属于厨余垃圾。",
+    "enReason": "Perishable food leftovers such as cooked rice belong to food waste in the household guide.",
+    "disposalGuide": "沥除明显水分，将米饭与餐盒、塑料袋等包装分开后投放厨余垃圾。",
+    "enDisposalGuide": "Drain excess liquid and separate rice from boxes and plastic bags before placing it in food waste.",
+    "matchCondition": "ONE portion of leftover cooked rice as the main waste, no packaging mixed into it; no chemical/medical contamination, not a container whose contents are unclear.",
+    "applicableConditions": "仅无包装混入的生活剩米饭；不含不明容器或化学/医疗污染。",
+    "matchedKey": "leftover_rice",
+    "sourceUrl": "https://cgj.sz.gov.cn/gkmlpt/content/11/11292/post_11292172.html",
+    "sourceImageUrl": "https://cgj.sz.gov.cn/img/4/4139/4139895/11292172.png",
+    "sourceTitle": "2024年深圳市生活垃圾分类投放指引（家庭版）",
+    "sourceScope": "厨余垃圾：剩菜剩饭；不混入食品包装",
+    "verificationStatus": "verified",
+    "ruleVerified": true,
+    "reviewedAt": "2026-10-31",
+    "quiz": {
+      "id": "q_leftover_rice_sz2024_v1",
+      "question": "无包装的剩米饭，在符合结果卡适用条件时，应投放哪类垃圾？",
+      "enQuestion": "For unpackaged leftover rice, when the conditions on the result card are met, which category applies?",
+      "options": [
+        {
+          "text": "A. 厨余垃圾",
+          "enText": "A. Food waste",
+          "isCorrect": true
+        },
+        {
+          "text": "B. 可回收物",
+          "enText": "B. Recyclables",
+          "isCorrect": false
+        },
+        {
+          "text": "C. 有害垃圾",
+          "enText": "C. Hazardous waste",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "剩饭剩菜等容易腐烂的食物在家庭指引中属于厨余垃圾。",
+      "enExplanation": "Perishable food leftovers such as cooked rice belong to food waste in the household guide.",
+      "verified": true,
+      "sourceUrl": "https://cgj.sz.gov.cn/gkmlpt/content/11/11292/post_11292172.html"
+    }
+  },
+  "broken_ceramic": {
+    "itemName": "破损陶瓷杯碗碎片",
+    "enItemName": "Broken ceramic cup or bowl pieces",
+    "category": "其他垃圾",
+    "reason": "家庭指引将破损花盆和陶瓷制品等难以回收的生活垃圾列入其他垃圾。",
+    "enReason": "The household guide places broken pots and ceramic household items that cannot be recovered in residual waste.",
+    "disposalGuide": "按其他垃圾投放；有尖锐边缘时包好以避免划伤（本项目安全提示）。",
+    "enDisposalGuide": "Use residual waste; wrap sharp edges to avoid injury (project safety advice).",
+    "matchCondition": "ONE identifiable broken ceramic household cup/bowl or its fragments; distinguish ceramic from glass, exclude chemical/medical contamination and construction rubble.",
+    "applicableConditions": "仅可辨识为生活陶瓷杯碗的破损部分；不是玻璃、建筑垃圾或危险污染物。",
+    "matchedKey": "broken_ceramic",
+    "sourceUrl": "https://cgj.sz.gov.cn/gkmlpt/content/11/11292/post_11292172.html",
+    "sourceImageUrl": "https://cgj.sz.gov.cn/img/4/4139/4139895/11292172.png",
+    "sourceTitle": "2024年深圳市生活垃圾分类投放指引（家庭版）",
+    "sourceScope": "其他垃圾：破损花盆/陶瓷制品",
+    "verificationStatus": "verified",
+    "ruleVerified": true,
+    "reviewedAt": "2026-10-31",
+    "quiz": {
+      "id": "q_broken_ceramic_sz2024_v1",
+      "question": "破损陶瓷杯碗碎片，在符合结果卡适用条件时，应投放哪类垃圾？",
+      "enQuestion": "For broken ceramic cup or bowl pieces, when the conditions on the result card are met, which category applies?",
+      "options": [
+        {
+          "text": "A. 其他垃圾",
+          "enText": "A. Residual waste",
+          "isCorrect": true
+        },
+        {
+          "text": "B. 可回收物",
+          "enText": "B. Recyclables",
+          "isCorrect": false
+        },
+        {
+          "text": "C. 厨余垃圾",
+          "enText": "C. Food waste",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "家庭指引将破损花盆和陶瓷制品等难以回收的生活垃圾列入其他垃圾。",
+      "enExplanation": "The household guide places broken pots and ceramic household items that cannot be recovered in residual waste.",
+      "verified": true,
+      "sourceUrl": "https://cgj.sz.gov.cn/gkmlpt/content/11/11292/post_11292172.html"
+    }
+  },
+  "rechargeable_battery": {
+    "itemName": "废充电电池",
+    "enItemName": "Used rechargeable battery",
+    "category": "有害垃圾",
+    "reason": "深圳家庭指引将废充电电池列入有害垃圾；不能将所有类型电池一律这样分类。",
+    "enReason": "Shenzhen’s household guide lists used rechargeable batteries as hazardous waste; this does not apply to every battery type.",
+    "disposalGuide": "保持电池完好，投放有害垃圾中的废电池收集容器，避免日晒雨淋。",
+    "enDisposalGuide": "Keep batteries intact and use a designated hazardous-waste battery container; protect them from sun and rain.",
+    "matchCondition": "Clearly identifiable household RECHARGEABLE battery/cells, supported by readable rechargeable or common 18650 3.7V markings. Several cells of the same type count as one waste type. Not ordinary alkaline dry cells; unknown battery type remains unknown.",
+    "applicableConditions": "明确识别的生活充电电池；普通碱性干电池不套用此规则。",
+    "matchedKey": "rechargeable_battery",
+    "verificationStatus": "verified",
+    "ruleVerified": true,
+    "reviewedAt": "2026-10-31",
+    "sourceUrl": "https://cgj.sz.gov.cn/gkmlpt/content/11/11292/post_11292172.html",
+    "sourceImageUrl": "https://cgj.sz.gov.cn/img/4/4139/4139895/11292172.png",
+    "sourceTitle": "2024年深圳市生活垃圾分类投放指引（家庭版）",
+    "sourceScope": "有害垃圾→电池：充电电池；保持完好并使用废电池收集容器",
+    "quiz": {
+      "id": "q_rechargeable_battery_sz2024_v1",
+      "question": "废充电电池应该投放到哪类收集容器？",
+      "enQuestion": "Which container should be used for a spent rechargeable battery?",
+      "options": [
+        {
+          "text": "A. 厨余垃圾桶",
+          "enText": "A. Food-waste bin",
+          "isCorrect": false
+        },
+        {
+          "text": "B. 有害垃圾的废电池收集容器",
+          "enText": "B. Hazardous-waste battery collection container",
+          "isCorrect": true
+        },
+        {
+          "text": "C. 随意混入其他垃圾",
+          "enText": "C. Mix with residual waste",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "废充电电池按有害垃圾单独收集，保持完好；不能把所有普通干电池一律判为有害垃圾。",
+      "enExplanation": "Collect spent rechargeable batteries separately as hazardous waste and keep them intact. Do not classify every ordinary dry cell as hazardous.",
+      "verified": true,
+      "sourceUrl": "https://cgj.sz.gov.cn/gkmlpt/content/11/11292/post_11292172.html"
+    }
   }
 }

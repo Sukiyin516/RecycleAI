@@ -40,3 +40,37 @@
 因此不能据此声称已验证模型对实际垃圾照片的识别准确率、当前账户的模型权限、网络可达性或配额。需要你在 `.env` 填写真实密钥、重启，再按 README 的真实照片测试步骤验证。模拟成功与错误测试不会产生真实 API 费用。
 
 当前本地白名单刻意较小，未覆盖物品会显示“暂时无法确定”；五道已核实题最多获得 50 分，若要自然答题到 60 分，需要后续加入有官方来源的题目。原有树形和升级阈值保留。
+
+## 2026-10-31 任务D：北京接口配置调整（最新基础测试）
+
+- 10项后端离线测试通过，新增北京默认值/地域和模型拦截、大图缩放检查；模拟请求验证实际URL、Bearer请求头、JSON模式、非思考、非流式、512输出上限，以及原图片/错误/规则逻辑。输出见[后端测试](development_records/evidence/2026-10-31_beijing_backend_tests.txt)。
+- pip check：无依赖冲突。
+- Edge浏览器回归通过：六演示、双语和题目、答题加分及防重复、积分语言保存、实际Lv.2/合成Lv.3、重置、手机布局、HTML独立演示、上传到本地Flask、缺密钥错误、模拟成功/失败/不确定。输出见[浏览器测试](development_records/evidence/2026-10-31_beijing_browser_tests.txt)。
+- 网站HTML和rules.json未改，截图与[配置清单](development_records/evidence/2026-10-31_beijing_api_configuration.json)对应。合成图和模拟API不是垃圾照片识别成功证据。
+- 真实百炼API、真实照片识别准确率、北京免费额度实际扣量及“用完即停”效果均尚未验证。按照用户要求，等待本地.env填写及确认再继续，不读取展示Key，不代填Key。
+
+## 2026-10-31 任务E：首次真实百炼API照片测试（最新）
+
+- 用户明确确认本地Key已填并提供饮料杯照片，授权继续真实测试。最初Key预检失败，发现百炼Key位于旧GEMINI_API_KEY字段；只在私人.env补正确DASHSCOPE_API_KEY、北京地址和模型，未展示Key，未改应用源文件。
+- 测试脚本首次在请求前因本机缺tzdata停止，尚未向供应商发请求；改用标准库UTC+8后继续。最终真实供应商请求仅1次，无自动重试，无模拟响应。
+- 真实北京qwen3.5-flash返回HTTP 200，本地POST /api/classify返回200。模型输出“塑料杯 / plastic cup”、ruleKey=unknown；该材质判断未被人工确认，不把模型自报certain=true当准确率证据。
+- 后端分类为“暂时无法确定”，matchedKey=null、ruleVerified=false；题目不显示。浏览器中英文切换检查成功。杯子尚无已核实的匹配规则，结果没有被替换成演示答案。
+- 供应商usage：输入1195 Token（图片882、文本313）、输出43，总1238。计时记录包含浏览器准备时间，不当作纯模型延迟。
+- [真实响应与usage证据](development_records/evidence/2026-10-31_real_bailian_cup_test.json)、[真实网页结果截图](development_records/screenshots/2026-10-31_real_bailian_cup_result.png)。原用户照片没有复制进仓库，结果截图不含照片预览或凭据。
+- 真实连通和未知规则路径通过；杯子实际材质与类别、更多照片准确率、深圳实地网络、真实用户学习效果、免费额度扣量和用完即停效果均未验证。请用户自行核对百炼北京控制台额度。
+- 前面“真实API尚未测试”的段落是任务A至D当时状态；以本节最新证据更新百炼单次连通结论，不追改历史记录。
+
+## 2026-10-31 任务F/G：规则扩充与课堂Demo简化
+
+- F先核对原1238 Token真实响应和截图哈希，再扩展10条规则（共16条、16道后台题）。[13项后端](development_records/evidence/2026-10-31_rules_backend_tests.txt)及[完整浏览器回归](development_records/evidence/2026-10-31_rules_browser_tests.txt)通过，含新增11题/双语/答错解释/重试/+10防重/保存及通过模拟识别后实际答题到Lv.3。不是AI准确率验证。首次失败见[浏览器失败记录](development_records/evidence/2026-10-31_rules_browser_initial_failure.txt)，修正测试回调后通过；旧香蕉皮题缺后端英文选项亦补齐。
+- F用户明确批准1次真实重测，真实供应商和Flask均200；仍“塑料杯/暂时无法确定”，1717 Token。原前测原件不改，后测另存。原因是当时严格条件仍未满足。[真实后测证据](development_records/evidence/2026-10-31_real_bailian_cup_after_rules.json)。
+- G用户要求简单Demo：明确塑料杯/瓶名直接匹配已核实规则，处理步骤放建议和知识题。结果名称改为“AI分类建议”。现有[13项后端检查](development_records/evidence/2026-10-31_simple_demo_backend_tests.txt)通过；[三个代表性浏览器场景](development_records/evidence/2026-10-31_simple_demo_browser_tests.txt)通过：杯子→可回收物/双语/问答重试/仅加10分一次，瓶子→可回收物，不明物品→不确定且无题/无积分。
+- G为已保存识别名称的本地重放或模拟，不是简化后的新真实API调用，无新增Token。两次真实“不确定”结果仍保留。原材质准确性、更多样本、深圳实地可用性和免费扣量均未验证。
+
+## 2026-10-31 任务H：四图真实分类及答题
+
+用户授权直接使用额度，测试banana.jpg、battery.png、bottle.jpg、tissue.jpg，不测all(no_test).png。4次真实qwen3.5-flash均200，分别厨余/有害/可回收/其他；4道三选一题答对各+10，40分/Lv.2。分类和答题共8张截图见[案例索引](development_records/evidence/2026-10-31_four_live_picture_summary.md)，共7512 Token；扣除免费额度未核实。只补充充电电池规则（不等于所有电池），现有13项后端检查通过，无新架构或网页重做。
+
+## 2026-10-31 任务I：环保树奖励截图
+
+实际在独立浏览器答对6道不同题，逐题+10达到60分，截取0/30/60分三个形态及+10反馈。重复答题不加分，刷新保留60分/Lv.3。使用本地演示和一个本地模拟识别响应，不调用真实AI、不直接写积分，无功能修改。[证据与截图](development_records/evidence/2026-10-31_tree_growth_summary.md)。

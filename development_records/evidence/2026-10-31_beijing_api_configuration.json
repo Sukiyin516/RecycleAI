@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-31",
+  "provided_reference": "apireadme.txt",
+  "reference_sha256": "69c7824c0ec50e368a728a192c035cc81bc35ec1e5e5f6ab70375429a4ede4d0",
+  "endpoint": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+  "region": "China Beijing",
+  "model": "qwen3.5-flash",
+  "request": {
+    "enable_thinking": false,
+    "stream": false,
+    "response_format": {
+      "type": "json_object"
+    },
+    "max_tokens": 512
+  },
+  "image_long_edge_limit": 1280,
+  "jpeg_quality": 85,
+  "real_api_test": "not run; waiting for local .env key and user confirmation",
+  "free_quota_and_stop_setting": "reported by user, not checked against their private console",
+  "screenshots": [
+    {
+      "file": "2026-10-31_beijing_home.png",
+      "source": ".tmp\\beijing-browser-results\\home.png",
+      "sha256": "a6d23672dc971b82eddfae0551045cbf6482db7c8ab5c9e28df4be98a077a1a7",
+      "state": "actual browser capture; local demo/regression, no real AI call"
+    },
+    {
+      "file": "2026-10-31_beijing_demo.png",
+      "source": ".tmp\\beijing-browser-results\\result.png",
+      "sha256": "bb1d11e6a59420c2afe91326ed4c5d261fbdc8cc5ade63ce004ba5e853a32097",
+      "state": "actual browser capture; local demo/regression, no real AI call"
+    },
+    {
+      "file": "2026-10-31_beijing_mobile.png",
+      "source": ".tmp\\beijing-browser-results\\mobile.png",
+      "sha256": "6feee7ac1c6668f20cd5e63c67bc773dc480ab0e7bf5cab61654f3ce2b4cbda2",
+      "state": "actual browser capture; local demo/regression, no real AI call"
+    }
+  ],
+  "observed_head": "dbbc692"
+}

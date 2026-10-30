@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-31",
+  "started_at": "2026-10-31T00:46:44.858469+08:00",
+  "test_type": "REAL_BAILIAN_API_WITH_USER_PHOTO",
+  "model": "qwen3.5-flash",
+  "endpoint": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+  "source_photo_sha256": "5ce6f86cebb4ea97a5fb137e2bcb6140a2192b464cf800ea1aa0a3d68c5a8d59",
+  "source_description": "User-provided photo of a lidded drink cup with a straw; original photo not copied into repository.",
+  "vendor_requests": [
+    {
+      "http_status": 200,
+      "elapsed_seconds_since_test_start": 9.64,
+      "id": "chatcmpl-c8949a3a-6365-9f9b-8ef7-a36b1f46aefa",
+      "model": "qwen3.5-flash",
+      "usage": {
+        "prompt_tokens": 1195,
+        "completion_tokens": 43,
+        "total_tokens": 1238,
+        "completion_tokens_details": {
+          "text_tokens": 43
+        },
+        "prompt_tokens_details": {
+          "image_tokens": 882,
+          "text_tokens": 313
+        }
+      },
+      "finish_reason": "stop",
+      "validated_observation": {
+        "itemName": "塑料杯",
+        "enItemName": "plastic cup",
+        "ruleKey": "unknown",
+        "certain": true,
+        "singleItem": true,
+        "conditionsMet": false
+      }
+    }
+  ],
+  "flask_response": {
+    "category": "暂时无法确定",
+    "disposalGuide": "请补拍清晰的单件物品和材质标识；电池需确认类型。向当地分类投放管理人核实后再投放。",
+    "enDisposalGuide": "Photograph one item and its material label clearly. Confirm battery chemistry and ask your local sorting manager before disposal.",
+    "enItemName": "plastic cup",
+    "enReason": "Image evidence is insufficient or no reviewed local rule covers this item.",
+    "itemName": "塑料杯",
+    "matchedKey": null,
+    "reason": "照片信息不足，或该物品没有本项目已核实的分类规则。",
+    "ruleVerified": false
+  },
+  "real_user_study": false,
+  "free_quota_verified": false,
+  "app_source_modified": false,
+  "flask_http_status": 200,
+  "displayed_item_name": "塑料杯",
+  "displayed_category": "暂时无法确定",
+  "quiz_visible": false,
+  "displayed_en_item_name": "plastic cup",
+  "displayed_en_category": "Uncertain",
+  "screenshot": "2026-10-31_real_bailian_cup_result.png",
+  "screenshot_sha256": "9cf57a759598d38c884ba67b843c3722dbf97a5f235ef88d95085c2523626f4c",
+  "finished_at": "2026-10-31T00:47:02.985997+08:00",
+  "total_elapsed_seconds": 18.12
+}
