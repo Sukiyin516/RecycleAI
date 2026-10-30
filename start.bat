@@ -10,7 +10,7 @@ if errorlevel 1 goto failed
 if not exist ".env" copy /y ".env.example" ".env" >nul
 echo.
 echo Open http://127.0.0.1:5000 in your browser.
-echo Put your Gemini key in .env, then restart this window.
+echo Put your Bailian key in .env, then restart this window.
 echo Press Ctrl+C to stop.
 ".venv\Scripts\python.exe" app.py
 if errorlevel 1 goto failed

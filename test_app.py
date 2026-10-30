@@ -1,9 +1,10 @@
-"""离线测试：不会发送图片给 Google，也不消耗 API 额度。"""
+"""离线测试：不会发送图片给百炼，也不消耗 API 额度。"""
 import base64
 import io
 import json
 import os
 import unittest
+import httpx
 from unittest.mock import patch, MagicMock
 
 from PIL import Image
@@ -19,7 +20,9 @@ def sample_image():
 class BackendTests(unittest.TestCase):
     def setUp(self):
         self.client = app.test_client()
-        self.env = patch.dict(os.environ, {'GEMINI_API_KEY': ''})
+        self.env = patch.dict(os.environ, {'DASHSCOPE_API_KEY': '',
+            'DASHSCOPE_BASE_URL': 'https://test-workspace.cn-beijing.maas.aliyuncs.com/compatible-mode/v1',
+            'DASHSCOPE_MODEL': 'qwen3.5-flash'})
         self.env.start()
         self.addCleanup(self.env.stop)
 
@@ -53,7 +56,7 @@ class BackendTests(unittest.TestCase):
 
     @patch('app.recognize')
     def test_failures_never_return_results(self, recognize):
-        os.environ['GEMINI_API_KEY'] = 'test-only'
+        os.environ['DASHSCOPE_API_KEY'] = 'test-only'
         for exc in (TimeoutError(), ValueError('invalid JSON'), RuntimeError('secret-data')):
             recognize.side_effect = exc
             response = self.post()
@@ -63,7 +66,7 @@ class BackendTests(unittest.TestCase):
 
     @patch('app.recognize')
     def test_verified_rules_and_uncertain(self, recognize):
-        os.environ['GEMINI_API_KEY'] = 'test-only'
+        os.environ['DASHSCOPE_API_KEY'] = 'test-only'
         for key, rule in RULES.items():
             recognize.return_value = Observation(itemName='测试物品', enItemName='Test item', ruleKey=key,
                                                  certain=True, singleItem=True, conditionsMet=True)
@@ -78,18 +81,50 @@ class BackendTests(unittest.TestCase):
             self.assertEqual(result['category'], '暂时无法确定')
             self.assertIsNone(result['matchedKey'])
 
-    @patch('app.genai.Client')
-    def test_sdk_boundary_and_schema_validation(self, client_class):
-        os.environ['GEMINI_API_KEY'] = 'test-only'
+    @patch('app.httpx.Client')
+    def test_api_boundary_and_schema_validation(self, client_class):
+        os.environ['DASHSCOPE_API_KEY'] = 'test-only'
         client = client_class.return_value.__enter__.return_value
-        generate = client.models.generate_content
-        generate.return_value = MagicMock(text=json.dumps(dict(itemName='香蕉皮', enItemName='Banana peel',
-            ruleKey='banana',certain=True,singleItem=True,conditionsMet=True)))
+        content = json.dumps(dict(itemName='香蕉皮', enItemName='Banana peel',
+            ruleKey='banana',certain=True,singleItem=True,conditionsMet=True))
+        def response(text, finish='stop'):
+            return MagicMock(json=MagicMock(return_value={'choices':[{
+                'finish_reason':finish, 'message':{'content':text}}]}))
+        client.post.return_value = response(content)
         self.assertEqual(self.post().json['category'], '厨余垃圾')
-        self.assertEqual(generate.call_args.kwargs['contents'][0].inline_data.mime_type, 'image/jpeg')
-        for text in ('', '{}', 'not JSON'):
-            generate.return_value = MagicMock(text=text)
+        sent = client.post.call_args.kwargs
+        self.assertEqual(sent['json']['model'], 'qwen3.5-flash')
+        self.assertFalse(sent['json']['enable_thinking'])
+        self.assertTrue(sent['json']['messages'][0]['content'][0]['image_url']['url'].startswith('data:image/jpeg;base64,'))
+        self.assertEqual(sent['headers']['Authorization'], 'Bearer test-only')
+        for text in ('', '{}', 'not JSON', None):
+            client.post.return_value = response(text)
             self.assertEqual(self.post().status_code, 502)
+        client.post.return_value = response(content, 'length')
+        self.assertEqual(self.post().status_code, 502)
+        client.post.return_value = response(content, 'content_filter')
+        self.assertEqual(self.post().status_code, 502)
+
+    @patch('app.httpx.Client')
+    def test_provider_errors_and_config(self, client_class):
+        os.environ['DASHSCOPE_API_KEY'] = 'test-only'
+        client = client_class.return_value.__enter__.return_value
+        for code, expected in ((401,502),(403,502),(429,503),(500,502)):
+            req = httpx.Request('POST', 'https://example.com')
+            client.post.side_effect = httpx.HTTPStatusError('private-provider-message',request=req,
+                response=httpx.Response(code,request=req))
+            result = self.post()
+            self.assertEqual(result.status_code, expected)
+            self.assertNotIn('category', result.json)
+            self.assertNotIn('private-provider-message', result.get_data(as_text=True))
+        client.post.side_effect = httpx.ReadTimeout('private-message')
+        self.assertEqual(self.post().status_code, 502)
+        client.post.reset_mock()
+        for url in ('', 'https://{WorkspaceId}.cn-beijing.maas.aliyuncs.com/compatible-mode/v1',
+                    'http://dashscope.aliyuncs.com/compatible-mode/v1', 'https://example.com/compatible-mode/v1'):
+            os.environ['DASHSCOPE_BASE_URL'] = url
+            self.assertEqual(self.post().json['error']['code'], 'PROVIDER_CONFIG_ERROR')
+        client.post.assert_not_called()
 
 
 if __name__ == '__main__':

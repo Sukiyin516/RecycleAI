@@ -12,11 +12,11 @@ from app import app, RULES
 
 
 def run():
-    os.environ['GEMINI_API_KEY'] = ''
+    os.environ['DASHSCOPE_API_KEY'] = ''
     server = make_server('127.0.0.1', 5000, app, threaded=True)
     threading.Thread(target=server.serve_forever, daemon=True).start()
-    output = Path('test-results')
-    output.mkdir(exist_ok=True)
+    output = Path('.tmp/bailian-browser-results')
+    output.mkdir(parents=True, exist_ok=True)
     try:
         with sync_playwright() as playwright:
             browser = playwright.chromium.launch(channel='msedge', headless=True)
@@ -71,12 +71,12 @@ def run():
                 expect(page.locator('#image-preview')).to_be_visible()
                 page.locator('#btn-start-ai').click()
             upload()
-            expect(page.get_by_text('尚未配置 Gemini API Key，请在后端 .env 中填写后重启。', exact=True)).to_be_visible()
+            expect(page.get_by_text('尚未配置百炼 API Key（DASHSCOPE_API_KEY），请在后端 .env 中填写后重启。', exact=True)).to_be_visible()
             expect(page.locator('#sec-result')).to_be_hidden()
             print('PASS: real browser upload reaches backend; missing key displays explicit error')
-            page.route('**/api/classify', lambda route: route.fulfill(status=502,json={'error':{'message':'测试：Gemini 请求失败','enMessage':'Test: Gemini request failed'}}))
+            page.route('**/api/classify', lambda route: route.fulfill(status=502,json={'error':{'message':'测试：Bailian 请求失败','enMessage':'Test: Bailian request failed'}}))
             upload()
-            expect(page.get_by_text('测试：Gemini 请求失败',exact=True)).to_be_visible()
+            expect(page.get_by_text('测试：Bailian 请求失败',exact=True)).to_be_visible()
             expect(page.locator('#sec-result')).to_be_hidden()
             page.unroute('**/api/classify')
             payload = dict(itemName='测试香蕉皮',enItemName='Test banana peel',matchedKey='banana',ruleVerified=True,
@@ -92,7 +92,7 @@ def run():
             upload()
             expect(page.locator('#res-category-name')).to_have_text('Uncertain')
             expect(page.locator('#quiz-banner-wrap')).to_be_hidden()
-            print('PASS: simulated API failure/success/uncertain rendering; no real Gemini call')
+            print('PASS: simulated API failure/success/uncertain rendering; no real Bailian call')
             page.reload(wait_until='domcontentloaded')
             expect(page.locator('html')).to_have_attribute('lang', 'en')
             page.set_viewport_size({'width':390,'height':844})

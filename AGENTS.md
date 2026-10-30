@@ -22,3 +22,11 @@
 - 使用 `.gitignore` 排除本地密钥文件；`.env.example` 只能包含占位符，不能包含真实凭据。
 - 不得把密钥写入 HTML、前端 JavaScript 或浏览器 localStorage，也不得在回复、日志或测试截图中展示真实凭据。
 - 用户确认 Commit 或 Push 后，仍须检查待提交内容，确保没有敏感信息。
+
+## 版本与后续开发
+
+- main 为阿里云百炼 qwen3.5-flash 主开发分支，后端配置使用 DASHSCOPE_API_KEY、DASHSCOPE_MODEL、DASHSCOPE_BASE_URL。
+- gemini-version 保留迁移前 Gemini 实现，不将百炼修改带入该备份分支。两个版本分别维护中文 README 和无真实凭据的 .env.example。
+- 不得把模拟 API 测试说成真实百炼或 Gemini 识别测试成功。
+- 修改 API 提供商时更新 DEVELOPMENT_LOG.md，记录真实迁移原因，不虚构准确率或性能结论。
+- 需要同步两个分支时，分别提醒用户 Commit to main / Commit to gemini-version，再 Push origin（未发布分支使用 Publish branch）。不得自行 Commit 或 Push。

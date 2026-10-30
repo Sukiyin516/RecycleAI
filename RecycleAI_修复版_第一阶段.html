@@ -160,7 +160,7 @@
                             <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold">1</span>
                             <span id="txt-step1-title">上传或拍摄垃圾照片</span>
                         </h2>
-                        <p class="text-xs text-slate-500 mt-1" id="txt-step1-desc">支持 JPG、PNG、WEBP，最大 8 MB；真实照片将发送至 Google 识别。</p>
+                        <p class="text-xs text-slate-500 mt-1" id="txt-step1-desc">支持 JPG、PNG、WEBP，最大 8 MB；真实照片将发送至阿里云百炼识别。</p>
                     </div>
                 </div>
 
@@ -340,9 +340,9 @@
         <div class="max-w-5xl mx-auto px-4 text-center space-y-2">
             <p id="txt-footer-title" class="font-medium text-slate-300">RecycleAI — AI 智能垃圾分类与环保学习助手</p>
             <p id="txt-footer-project">香港教育大学 (EdUHK) · Artificial Intelligence in Education 课程小组项目演示 Prototype</p>
-            <p id="txt-footer-note" class="text-slate-500 text-[11px]">课程 Demo：Gemini 识别物品，已核实规则分类；未覆盖物品返回暂时无法确定</p>
+            <p id="txt-footer-note" class="text-slate-500 text-[11px]">课程 Demo：百炼识别物品，已核实规则分类；未覆盖物品返回暂时无法确定</p>
         </div>
-    <p class="text-xs text-slate-500 text-center px-4 pb-4"><a href="https://www.szlh.gov.cn/zmhd/wdzsk/content/post_12679202.html" target="_blank" rel="noopener noreferrer">规则来源 / Rules: 深圳罗湖官方分类说明</a> · 2026-10-29 核对 / reviewed<br>未覆盖规则不推测；真实照片发送至 Google，本项目不保存照片。<br>Uncovered rules remain uncertain. Real photos are sent to Google; this app does not save photos.</p></footer>
+    <p class="text-xs text-slate-500 text-center px-4 pb-4"><a href="https://www.szlh.gov.cn/zmhd/wdzsk/content/post_12679202.html" target="_blank" rel="noopener noreferrer">规则来源 / Rules: 深圳罗湖官方分类说明</a> · 2026-10-29 核对 / reviewed<br>未覆盖规则不推测；真实照片发送至阿里云百炼，本项目不保存照片。<br>Uncovered rules remain uncertain. Real photos are sent to Alibaba Cloud Bailian; this app does not save photos.</p></footer>
 
     <!-- EXPLICIT POPUP MODAL: QUIZ CHALLENGE (环保小挑战弹窗) -->
     <div id="quiz-modal" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-4">
@@ -403,8 +403,8 @@
             <div class="space-y-4 text-xs text-slate-600">
                 <div class="space-y-1.5">
                     <label id="txt-settings-ai-label" class="font-bold text-slate-700 block">AI 连接状态</label>
-                    <div id="txt-settings-ai-status" class="rounded-xl border border-amber-200 bg-amber-50 text-amber-800 px-3 py-3">本地演示无需密钥。真实照片经 Python 后端调用 Gemini；请在 .env 配置密钥并重启。图片将发送至 Google 处理。</div>
-                    <p id="txt-settings-ai-security" class="text-[11px] text-slate-500">为了保护密钥，网页不会要求或保存 Gemini API Key。</p>
+                    <div id="txt-settings-ai-status" class="rounded-xl border border-amber-200 bg-amber-50 text-amber-800 px-3 py-3">本地演示无需密钥。真实照片经 Python 后端调用百炼；请在 .env 配置密钥并重启。图片将发送至阿里云百炼处理。</div>
+                    <p id="txt-settings-ai-security" class="text-[11px] text-slate-500">为了保护密钥，网页不会要求或保存百炼 API Key（DASHSCOPE_API_KEY）。</p>
                 </div>
                 <div class="pt-2 border-t border-slate-100 space-y-2">
                     <label id="txt-settings-reset-label" class="font-bold text-slate-700 block">演示数据重置</label>
@@ -667,7 +667,7 @@
                 nextLevel: '下一阶段',
                 treeTip: '通过 AI 拍照识别垃圾并成功答对弹窗知识测验，每次可获得 +10 积分！小树成长需要你的知识守护。',
                 step1Title: '上传或拍摄垃圾照片',
-                step1Desc: '支持 JPG、PNG、WEBP，最大 8 MB；真实照片将发送至 Google 识别。',
+                step1Desc: '支持 JPG、PNG、WEBP，最大 8 MB；真实照片将发送至阿里云百炼识别。',
                 dragPrompt: '点击上传或将图片拖拽至此处',
                 presetTitle: '本地演示（不调用 AI；电池案例待核实）：',
                 btnAI: '开始 AI 智能识别分类',
@@ -691,7 +691,7 @@
                 nextLevel: 'Next Level',
                 treeTip: 'Snap waste items and complete popup quiz challenges to gain +10 pts each! Help your Eco-Tree grow.',
                 step1Title: 'Upload or Take Photo of Waste',
-                step1Desc: 'JPG, PNG, WEBP up to 8 MB; real photos are sent to Google for recognition.',
+                step1Desc: 'JPG, PNG, WEBP up to 8 MB; real photos are sent to Alibaba Cloud Bailian for recognition.',
                 dragPrompt: 'Click or Drag photo here to upload',
                 presetTitle: 'Local demo samples (no AI recognition):',
                 btnAI: 'Start AI Classification',
@@ -719,11 +719,11 @@
                 card: ['可回收物','适宜回收利用和资源化利用的生活废弃物','厨余垃圾','易腐烂的生活食物废弃物','有害垃圾','需特别安全处理的生活废弃物','其他垃圾','不属于前三类的其他生活废弃物'],
                 footerTitle: 'RecycleAI — AI 智能垃圾分类与环保学习助手',
                 footerProject: '香港教育大学 (EdUHK) · Artificial Intelligence in Education 小组项目原型',
-                footerNote: '课程 Demo：Gemini 识别物品，已核实规则分类；未覆盖物品返回暂时无法确定',
+                footerNote: '课程 Demo：百炼识别物品，已核实规则分类；未覆盖物品返回暂时无法确定',
                 statusDemo: '本地演示样例 · 未调用 AI', statusAI: 'AI 识别建议 · 请核对规则',
                 settingsTitle: '项目设置', settingsAILabel: 'AI 连接状态',
-                settingsAIStatus: '本地演示无需密钥。真实照片经 Python 后端调用 Gemini；请在 .env 配置密钥并重启。图片将发送至 Google 处理。',
-                settingsSecurity: '为了保护密钥，网页不会要求或保存 Gemini API Key。',
+                settingsAIStatus: '本地演示无需密钥。真实照片经 Python 后端调用百炼；请在 .env 配置密钥并重启。图片将发送至阿里云百炼处理。',
+                settingsSecurity: '为了保护密钥，网页不会要求或保存百炼 API Key（DASHSCOPE_API_KEY）。',
                 settingsReset: '演示数据重置', settingsResetBtn: '重置环保积分与树苗等级', settingsClose: '关闭',
                 loadingTitle: '正在识别图片...', loadingDesc: '请稍候，不会返回未经核实的默认分类',
                 imageInvalid: '请上传 JPG、PNG 或 WEBP 图片', imageTooLarge: '图片不能超过 8 MB',
@@ -744,11 +744,11 @@
                 card: ['Recyclables','Items suitable for material recovery','Food waste','Biodegradable kitchen and food scraps','Hazardous waste','Household waste requiring special handling','Residual waste','Household waste outside the other three categories'],
                 footerTitle: 'RecycleAI — Waste Sorting & Environmental Learning Assistant',
                 footerProject: 'EdUHK · Artificial Intelligence in Education · Group Project Prototype',
-                footerNote: 'Course demo: Gemini identifies items; reviewed rules classify them. Uncovered items remain uncertain.',
+                footerNote: 'Course demo: Bailian identifies items; reviewed rules classify them. Uncovered items remain uncertain.',
                 statusDemo: 'Local sample · No AI recognition', statusAI: 'AI suggestion · Verify against local rules',
                 settingsTitle: 'Project Settings', settingsAILabel: 'AI Connection Status',
-                settingsAIStatus: 'Demos need no key. Real photos go through Python to Gemini. Configure .env and restart. Photos are sent to Google for processing.',
-                settingsSecurity: 'To protect your credentials, this webpage never requests or stores a Gemini API key.',
+                settingsAIStatus: 'Demos need no key. Real photos go through Python to Bailian. Configure .env and restart. Photos are sent to Alibaba Cloud Bailian for processing.',
+                settingsSecurity: 'To protect your credentials, this webpage never requests or stores a Bailian API key.',
                 settingsReset: 'Reset Demo Data', settingsResetBtn: 'Reset points and tree level', settingsClose: 'Close',
                 loadingTitle: 'Checking image...', loadingDesc: 'An unverified fallback category will not be shown',
                 imageInvalid: 'Please upload a JPG, PNG, or WEBP image', imageTooLarge: 'Images must not exceed 8 MB',
@@ -1115,7 +1115,7 @@
 
         // Backend contract: POST /api/classify, body { imageDataUrl }.
         // Return JSON { itemName, enItemName?, category, reason, enReason?, disposalGuide,
-        //               enDisposalGuide?, matchedKey? }. Keep Gemini API keys on the SERVER.
+        //               enDisposalGuide?, matchedKey? }. Keep Bailian API keys on the SERVER.
         async function callRecognitionBackend(imageDataUrl) {
             if (window.location.protocol === 'file:') {
                 throw new Error('BACKEND_UNAVAILABLE');

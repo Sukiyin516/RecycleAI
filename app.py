@@ -1,4 +1,4 @@
-"""本地课程 Demo：Gemini 只识别物品，本地审核规则负责分类。"""
+"""本地课程 Demo：百炼只识别物品，本地审核规则负责分类。"""
 import base64
 import binascii
 import io
@@ -11,8 +11,8 @@ from typing import Literal
 
 from dotenv import load_dotenv
 from flask import Flask, jsonify, request, send_file
-from google import genai
-from google.genai import types
+import httpx
+from urllib.parse import urlparse
 from PIL import Image, UnidentifiedImageError
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 from werkzeug.exceptions import HTTPException
@@ -32,6 +32,10 @@ class Observation(BaseModel):
     certain: bool
     singleItem: bool
     conditionsMet: bool
+
+
+class ProviderConfigError(Exception):
+    pass
 
 
 class InvalidImage(ValueError):
@@ -80,19 +84,42 @@ def recognize(image_bytes, mime_type):
         'never infer battery chemistry from shape. certain means visually certain, not a numeric confidence. '
         'Candidate conditions: ' + json.dumps(candidates, ensure_ascii=False)
     )
-    with genai.Client(api_key=os.environ['GEMINI_API_KEY'],
-                      http_options=types.HttpOptions(timeout=45000, retry_options=types.HttpRetryOptions(attempts=1))) as client:
-        response = client.models.generate_content(
-            model=os.getenv('GEMINI_MODEL', 'gemini-3.5-flash-lite'),
-            contents=[types.Part.from_bytes(data=image_bytes, mime_type=mime_type), prompt],
-            config=types.GenerateContentConfig(
-                temperature=0, response_mime_type='application/json',
-                response_schema=Observation, max_output_tokens=2048),
+    base_url = os.getenv('DASHSCOPE_BASE_URL', '').strip().rstrip('/')
+    parsed = urlparse(base_url)
+    host = parsed.hostname or ''
+    if (parsed.scheme != 'https' or parsed.username or parsed.password or parsed.query or parsed.fragment
+            or parsed.port not in (None, 443)
+            or not (host in ('dashscope.aliyuncs.com', 'dashscope-intl.aliyuncs.com', 'dashscope-us.aliyuncs.com')
+                    or host.endswith('.maas.aliyuncs.com'))
+            or not parsed.path.endswith('/compatible-mode/v1') or '{' in base_url or '}' in base_url):
+        raise ProviderConfigError('Invalid or missing Bailian endpoint')
+    prompt += (' Return only a JSON object following this schema, no markdown: '
+               + json.dumps(Observation.model_json_schema(), ensure_ascii=False))
+    data_url = 'data:' + mime_type + ';base64,' + base64.b64encode(image_bytes).decode('ascii')
+    with httpx.Client(timeout=httpx.Timeout(45, connect=10), follow_redirects=False) as client:
+        response = client.post(
+            base_url + '/chat/completions',
+            headers={'Authorization': 'Bearer ' + os.environ['DASHSCOPE_API_KEY'].strip()},
+            json={
+                'model': os.getenv('DASHSCOPE_MODEL', 'qwen3.5-flash'),
+                'messages': [{'role': 'user', 'content': [
+                    {'type': 'image_url', 'image_url': {'url': data_url}},
+                    {'type': 'text', 'text': prompt}]}],
+                'temperature': 0, 'enable_thinking': False,
+                'response_format': {'type': 'json_object'}, 'max_tokens': 2048,
+            },
         )
-        # 仍然检查结构；安全拦截/空响应/非法 JSON 都不能变成分类结果。
-        if not response.text:
-            raise ValueError('Empty model response')
-        return Observation.model_validate_json(response.text)
+        response.raise_for_status()
+        payload = response.json()
+        try:
+            choice = payload['choices'][0]
+            text = choice['message']['content']
+            if choice.get('finish_reason') != 'stop' or not isinstance(text, str) or not text.strip():
+                raise ValueError('Incomplete or blocked response')
+        except (KeyError, IndexError, TypeError) as exc:
+            raise ValueError('Invalid provider response') from exc
+        return Observation.model_validate_json(text)
+
 
 
 def build_result(observation):
@@ -143,26 +170,29 @@ def create_app():
             raw, mime = decode_image(body.get('imageDataUrl'))
         except InvalidImage as exc:
             return fail('INVALID_IMAGE', str(exc), 'Invalid image: use a valid JPG/PNG/WEBP up to 8 MB and 20 megapixels.', 400)
-        key = os.getenv('GEMINI_API_KEY', '').strip()
-        if not key or key == 'your_gemini_api_key_here':
-            return fail('API_KEY_MISSING', '尚未配置 Gemini API Key，请在后端 .env 中填写后重启。',
-                        'Set GEMINI_API_KEY in the backend .env file and restart.', 503)
+        key = os.getenv('DASHSCOPE_API_KEY', '').strip()
+        if not key or key == 'your_dashscope_api_key_here':
+            return fail('API_KEY_MISSING', '尚未配置百炼 API Key（DASHSCOPE_API_KEY），请在后端 .env 中填写后重启。',
+                        'Set DASHSCOPE_API_KEY in the backend .env file and restart.', 503)
         try:
             return jsonify(build_result(recognize(raw, mime)))
+        except ProviderConfigError:
+            return fail('PROVIDER_CONFIG_ERROR', '请在 .env 设置百炼控制台提供的 DASHSCOPE_BASE_URL，并替换业务空间占位符。',
+                        'Set DASHSCOPE_BASE_URL from your Bailian console; replace workspace placeholders.', 503)
         except (ValidationError, ValueError):
             return fail('INVALID_AI_RESPONSE', 'AI 未返回有效识别信息（可能被安全拦截），请换图重试。',
                         'AI returned no valid recognition data; try another image.', 502)
         except Exception as exc:
             # 不回传/记录原始异常：供应商错误中可能带凭据或请求内容。
-            code = getattr(exc, 'code', None)
+            code = exc.response.status_code if isinstance(exc, httpx.HTTPStatusError) else None
             if code in (400, 401, 403):
-                return fail('GEMINI_ACCESS_ERROR', 'Gemini 拒绝请求，请检查密钥、地区及项目权限。',
-                            'Gemini denied access; check key, region and project permissions.', 502)
+                return fail('BAILIAN_ACCESS_ERROR', '百炼拒绝请求，请检查密钥、地区及项目权限。',
+                            'Bailian denied access; check key, region and project permissions.', 502)
             if code == 429:
-                return fail('GEMINI_QUOTA', 'Gemini 额度不足或请求过于频繁，请稍后再试。',
-                            'Gemini quota or rate limit reached. Try later.', 503)
-            return fail('GEMINI_UNAVAILABLE', 'Gemini 请求失败或超时，请检查网络、模型名称后重试。没有生成分类结果。',
-                        'Gemini request failed or timed out. Check network and model name. No result was generated.', 502)
+                return fail('BAILIAN_QUOTA', '百炼额度不足或请求过于频繁，请稍后再试。',
+                            'Bailian quota or rate limit reached. Try later.', 503)
+            return fail('BAILIAN_UNAVAILABLE', '百炼请求失败或超时，请检查网络、模型名称后重试。没有生成分类结果。',
+                        'Bailian request failed or timed out. Check network and model name. No result was generated.', 502)
 
     @app.errorhandler(HTTPException)
     def http_error(exc):
