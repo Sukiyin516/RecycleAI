@@ -6,7 +6,7 @@
 
 - [PPT 素材汇总](PPT_MATERIALS.md)：按七个展示主题选材料。
 - [历史阶段索引](HISTORY.md)：区分已有证据和待补充阶段。
-- 每日记录：[10月29日](daily/2026-10-29.md)、[10月30日](daily/2026-10-30.md)、[10月31日](daily/2026-10-31.md)。
+- 每日记录：[10月29日](daily/2026-10-29.md)、[10月30日](daily/2026-10-30.md)、[10月31日](daily/2026-10-31.md)、[11月2日](daily/2026-11-02.md)。
 - [日志模板](DAILY_TEMPLATE.md)、[截图索引及手动取证清单](screenshots/README.md)。
 - 原开发记录继续引用 [DEVELOPMENT_LOG.md](../DEVELOPMENT_LOG.md)、[TEST_RESULTS.md](../TEST_RESULTS.md) 和 [readme.txt](../readme.txt)，不删除或重复改写全文。检查时没有找到既有 PROMPTS.md、CHANGELOG.md 或 TEST_LOG.md。
 

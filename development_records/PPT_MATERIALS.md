@@ -24,13 +24,15 @@
 
 ## 4. Technical Feasibility
 
+- **2026-11-02 同Wi-Fi演示准备**：Flask监听改为`0.0.0.0:5000`，同源检查兼容LAN网址，保留原网页。14项离线测试通过；电脑访问本机和WLAN网址均200，未调用真实AI或修改防火墙。手机跨设备访问、上传和答题仍待用户验证，不能称为手机测试成功。[当日日志](daily/2026-11-02.md)、[实际HTTP证据](evidence/2026-11-02_lan_access_tests.json)、[操作说明](../README.md#同一-wi-fi-手机访问2026-11-02)。
+
 - **四张图片真实演示（任务H）**：香蕉皮/充电电池/塑料瓶/纸巾分别得到厨余/有害/可回收/其他建议；各完成1道三选一题，最终40分/Lv.2。共4次真实API，7512 Token，已保存8张分类/答题截图。[直接选取PPT截图](evidence/2026-10-31_four_live_picture_summary.md)。是开发演示验证，不是居民学习效果或大样本准确率实验。
 
 - 2026-10-31任务E实测：用户饮料杯照片经真实北京qwen3.5-flash返回200；模型称“塑料杯”，但材质未核实且无匹配规则，网页显示不确定、无测验，双语结果切换正常。供应商usage总1238 Token（输入1195、输出43）；不代表费用或免费额度已验证。[真实证据](evidence/2026-10-31_real_bailian_cup_test.json)、[实测结果截图](screenshots/2026-10-31_real_bailian_cup_result.png)。适合PPT标注“Live API connectivity verified; waste category unresolved”。
 
 - 2026-10-31任务D补充：依据用户提供的官方文档将默认接入修正为北京标准域名，后端限制北京/qwen3.5-flash。图片缩放、关闭思考、短JSON和512输出上限用于控制请求规模，未实测节省比例或费用。10项离线及浏览器回归通过；用户报告已申请Key、剩余免费额度和用完即停设置，但真实API和免费扣量仍待验证。[配置/截图证据](evidence/2026-10-31_beijing_api_configuration.json)、[当日日志任务D](daily/2026-10-31.md)。
 
-- 本地Windows/Python/Flask可运行；网页通过/api/classify发送Data URL；限制图片格式、大小、像素及元数据；只监听本机。[运行说明](../README.md)、[app.py](../app.py)。
+- 本地Windows/Python/Flask可运行；网页通过/api/classify发送Data URL；限制图片格式、大小、像素及元数据；10月31日版本只监听本机，11月2日已开放可信局域网监听。[运行说明](../README.md)、[app.py](../app.py)。
 - 旧记录：Gemini7组离线测试；百炼8组离线/模拟测试及浏览器回归通过。当前任务实拍验证主页、本地香蕉皮、缺Key错误。[旧测试文件](../TEST_RESULTS.md)、[10月31日Testing](daily/2026-10-31.md)。这不是最新重复执行全部测试，也不证明真实API连通。
 - 适合展示：[缺密钥错误](screenshots/2026-10-31_missing_bailian_key.png)和[本地香蕉皮演示](screenshots/2026-10-31_local_demo_banana.png)。图注注明“Local backend error test”和“Local demo; no AI call”。
 - 任务E已有一次真实Key响应（200），但纯模型延迟、费用、识别准确率及跨网络测试仍待验证；不能将单张照片当作完整实验。

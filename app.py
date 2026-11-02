@@ -204,8 +204,8 @@ def create_app():
 
     @app.post('/api/classify')
     def classify():
-        # 本地服务仅允许自己的网页调用，避免其他网站在浏览器中消耗密钥额度。
-        if request.headers.get('Origin') not in (None, 'http://127.0.0.1:5000', 'http://localhost:5000'):
+        # 接受当前网页的同源请求，兼容本机和局域网地址；不开放跨站调用。
+        if request.headers.get('Origin') not in (None, request.host_url.rstrip('/')):
             return fail('ORIGIN_DENIED', '请从本地项目网页发起请求。', 'Use the local project page.', 403)
         if not request.is_json:
             return fail('INVALID_REQUEST', '请求必须是 JSON。', 'Request must be JSON.', 415)
@@ -251,4 +251,4 @@ def create_app():
 
 app = create_app()
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=5000, debug=False)
+    app.run(host='0.0.0.0', port=5000, debug=False)

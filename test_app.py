@@ -56,6 +56,18 @@ class BackendTests(unittest.TestCase):
         self.assertEqual(self.client.post('/api/classify', data='{', content_type='application/json').status_code, 400)
         self.assertEqual(self.client.post('/api/classify', json={}, headers={'Origin':'https://example.com'}).status_code, 403)
 
+    def test_lan_same_origin(self):
+        # 不调用AI：同源请求应进入缺密钥检查，跨站请求仍被拒绝。
+        for base_url in ('http://172.17.25.99:5000', 'http://127.0.0.1:5000', 'http://localhost:5000'):
+            response = self.client.post('/api/classify', base_url=base_url,
+                headers={'Origin': base_url}, json={'imageDataUrl': sample_image()})
+            self.assertEqual(response.status_code, 503)
+            self.assertEqual(response.json['error']['code'], 'API_KEY_MISSING')
+        for origin in ('https://example.com', 'http://172.17.25.99:5001', 'null'):
+            response = self.client.post('/api/classify', base_url='http://172.17.25.99:5000',
+                headers={'Origin': origin}, json={'imageDataUrl': sample_image()})
+            self.assertEqual(response.status_code, 403)
+
     @patch('app.recognize')
     def test_failures_never_return_results(self, recognize):
         os.environ['DASHSCOPE_API_KEY'] = 'test-only'

@@ -40,6 +40,26 @@ cd D:\eduhk_AIET\INIT6065\project\RecycleAI
 .\.venv\Scripts\python.exe app.py
 ```
 
+## 同一 Wi-Fi 手机访问（2026-11-02）
+
+启动方式不变：双击 `start.bat`（它运行 `.venv\Scripts\python.exe app.py`）。如果旧窗口还在运行，先按 Ctrl+C 停止，再重新启动；保持窗口打开。后端现在监听 `0.0.0.0:5000`，关闭调试；电脑仍可打开 http://127.0.0.1:5000。手机不能使用自己的 127.0.0.1，也不要把 0.0.0.0 当作访问网址。[Flask 官方说明](https://flask.palletsprojects.com/en/stable/quickstart/#externally-visible-server)。
+
+1. 电脑与手机连接同一 Wi-Fi。
+2. 本次电脑 WLAN IPv4 为 `172.17.25.99`，手机浏览器输入 **http://172.17.25.99:5000**（HTTP，含端口）。换 Wi-Fi 或重新联网后地址可能变化，用电脑 PowerShell 的 `ipconfig` 查 WLAN 的 IPv4，再替换网址。
+3. 先在电脑浏览器打开这个局域网网址，再在手机打开。手机访问/上传/答题仍需实际验证；电脑自行访问成功不能证明手机已连通。手机积分、语言和树保存在手机自己的浏览器，不同步电脑数据。
+
+若手机打不开，先检查网址、同一 Wi-Fi 和服务器窗口。需要放行防火墙时，请手动操作，不关闭防火墙：
+
+1. 按 Win+R，输入 `wf.msc`，打开“高级安全 Windows Defender 防火墙”。
+2. 选择“入站规则”→“新建规则”→“端口”→“TCP”→“特定本地端口”填 `5000`。
+3. 选择“允许连接”；在你信任且确实标为“专用”的 Wi-Fi 上，只勾选“专用”，名称填 `RecycleAI TCP 5000`。
+4. 建好后打开规则“属性”→“作用域”→“远程 IP 地址”→“下列 IP 地址”→“添加”→“预定义的计算机集：本地子网”。
+5. 再试手机网址。使用结束可禁用该规则，并按 Ctrl+C 停止服务器。
+
+学校/公共 Wi-Fi 若被标为“公用”或“域”，上述专用规则不会生效；不要为此随意将公共网络改为专用，可改用自己的可信热点，或向学校 IT 确认权限。访客/校园 Wi-Fi 也可能禁止设备之间互访，即使 Wi-Fi 名称相同仍无法连接。防火墙仅提供操作说明，本次没有修改系统规则。[微软配置步骤](https://learn.microsoft.com/en-us/windows/security/operating-system-security/network-security/windows-firewall/configure)、[本地子网范围建议](https://learn.microsoft.com/en-us/windows/security/operating-system-security/network-security/windows-firewall/rules)。
+
+这是可信局域网内的临时课程演示，不做路由器端口转发或公网部署；同网段访问者可使用电脑后端的 API 额度，演示完停止服务器。密钥仍只在后端 `.env`，不向手机返回。
+
 ## 识别流程与限制
 
 浏览器通过 POST /api/classify 发送 imageDataUrl；Python 检查并在内存中转码，移除附加元数据，经 HTTPS 发给百炼。使用 HTTPX 调用官方 Chat Completions 兼容接口，关闭思考并要求 JSON；Pydantic 严格验证返回字段和类型。
@@ -60,7 +80,7 @@ Qwen 只识别物品、可见条件及匹配标识；类别和投放建议由 ru
 
 课程Demo采用简单建议：明确识别为普通塑料杯或塑料饮料瓶，直接匹配已核实的可回收物规则，不再要求展示封盖/吸管/内部或先证明清洁。清空、清洁等放投放提示和题目。真正不明类型或无规则时仍不确定、无题无积分。结果标题为“AI分类建议 / AI Sorting Suggestion”，不保证每次识别都正确。
 
-原有 Tailwind、字体、图标和彩纸动画依赖外部 CDN；仅监听本机，是课程 Demo，没有公网账户系统。
+原有 Tailwind、字体、图标和彩纸动画依赖外部 CDN；允许可信局域网访问，是课程 Demo，没有公网账户系统。
 
 ## 文件与测试
 

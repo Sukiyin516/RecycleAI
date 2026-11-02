@@ -1,0 +1,55 @@
+{
+  "date": "2026-11-02",
+  "test_type": "Actual Flask socket tests from this computer, not a phone test",
+  "backend_unittest": "14 passed",
+  "checks": [
+    {
+      "test": "Flask startup",
+      "passed": true
+    },
+    {
+      "test": "0.0.0.0:5000 listener",
+      "passed": false
+    },
+    {
+      "url": "http://127.0.0.1:5000/",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "url": "http://127.0.0.1:5000/api/classify",
+      "status": 400,
+      "code": "INVALID_IMAGE",
+      "passed": true
+    },
+    {
+      "url": "http://172.17.25.99:5000/",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "url": "http://172.17.25.99:5000/api/classify",
+      "status": 400,
+      "code": "INVALID_IMAGE",
+      "passed": true
+    },
+    {
+      "test": "/.env not exposed",
+      "passed": true
+    },
+    {
+      "test": "/app.py not exposed",
+      "passed": true
+    },
+    {
+      "test": "cross-site blocked",
+      "passed": true
+    }
+  ],
+  "real_api_calls": 0,
+  "phone_test": "Not performed; user to verify on same Wi-Fi",
+  "firewall_changes": "None",
+  "test_server_stopped": true,
+  "ui_changes": "None",
+  "earlier_attempts": "Restricted socket probe failed (WinError 10013). A separate process attempt timed out; this test runs startup and requests together outside restriction."
+}
