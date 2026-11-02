@@ -66,3 +66,11 @@
 ## 环保树三个成长形态
 
 实际答题累积到60分，截图包含0分小树苗、30分成长树、60分绿色大树，以及+10奖励：[查看全部四张截图](../evidence/2026-10-31_tree_growth_summary.md)。无直接修改积分，无新增AI调用。
+
+## 2026-11-02 iPhone相册格式兼容：桌面回归
+
+历史状态：用户随后要求回退，程序已恢复到57d5df9。以下截图仅保留尝试证据，不代表当前功能或iPhone修复成功。
+
+- [最终转码测试预览](2026-11-02_normalized_photo_local_test_03.png)：真实桌面Edge截图。生成的纯色PNG故意标为IMG_8150.jpeg，标准化为IMG_8150.jpg后通过Flask图片校验，停在测试故意缺Key提示处。不是用户原照片、不是iPhone截图、不是AI识别成功；截图不含真实Key。
+- 首轮[截图](2026-11-02_normalized_photo_local_test.png)及第二轮[截图](2026-11-02_normalized_photo_local_test_02.png)保留；首轮随后在英文名称测试预期处失败，与图片转换无关。[结果与限制](../evidence/2026-11-02_iphone_upload_tests.json)。
+- 手机证据待补：重启服务器并刷新Safari，原相册照片及现场拍照分别截图，推荐`2026-11-02_iphone_album_after.png`、`2026-11-02_iphone_camera_after.png`；HEIC和照片方向也需设备核对。先遮挡隐私，不截配置Key或账户页面。

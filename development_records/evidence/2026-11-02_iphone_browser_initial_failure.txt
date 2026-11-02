@@ -1,0 +1,7 @@
+Desktop Edge regression, 2026-11-02. No real AI request.
+Photo conversion and rejection cases completed before the failure.
+Test assertion expected: Plastic Bottle
+Actual existing demo English name: Plastic Beverage Bottle
+Failure: Locator expected to have text 'Plastic Bottle'.
+Fix: Correct only the test expectation to match the existing bilingual demo name; do not change the website text.
+First screenshot retained: ../screenshots/2026-11-02_normalized_photo_local_test.png

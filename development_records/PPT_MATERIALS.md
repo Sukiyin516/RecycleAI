@@ -39,6 +39,8 @@
 
 ## 5. Problems & Iterations
 
+- **2026-11-02 iPhone相册兼容尝试与回退**：用户报告拍照识别正常，但相册`IMG_8150.jpeg`可预览、后端拒绝。确认错误发生在AI调用前的格式/帧数校验；未取得原文件，具体HEIC或MPO根因待核。任务B尝试浏览器转成单帧JPEG，16项后端及桌面回归通过，无真实AI调用；随后用户反馈不行并要求回退，任务C已将程序恢复到57d5df9（保留局域网配置），恢复后14项后端检查通过。相册问题仍未解决，不能把该尝试当作当前功能或手机修复成功。[日志任务B/C](daily/2026-11-02.md)、[历史测试证据](evidence/2026-11-02_iphone_upload_tests.json)、[历史桌面截图](screenshots/2026-11-02_normalized_photo_local_test_03.png)。图为生成样例，不是原照片或手机成功图。英文素材："A JPEG normalization attempt passed desktop tests, but the user requested a rollback after reporting it did not work. We restored the previous version and retained the evidence. The iPhone Photos issue remains unresolved, highlighting the need for real-device testing."
+
 - **课堂Demo反馈后的简化**：规则从6扩至16（新增10条）。严格后测仍不确定（真实1717 Token），用户要求普通塑料杯/瓶直接按已知名称匹配，把清空清洁放题目。已改为“AI分类建议”，用3个代表场景验证问答和积分；简化后的杯子可回收物截图为本地重放，不是第三次真实调用。[完整前后对比](iterations/2026-10-31_expanding_rules.md)、[本地重放图](screenshots/2026-10-31_simple_cup_local_replay.png)。可用英文："We expanded the verified rules, then simplified common-item matching for a classroom demo. Cleaning steps became learning prompts rather than recognition barriers. Results are AI sorting suggestions, not guarantees."
 
 - **Design Iteration — Expanding Waste Classification Rules（先记录原始问题）**：真实API已返回饮料杯相关名称，但杯体材质未核实且原6条规则无匹配，因此保持不确定。拟根据深圳官方资料扩大条件化规则及双语知识题，而不是把图像识别等同正确分类。[完整迭代记录](iterations/2026-10-31_expanding_rules.md)、[不可覆盖的真实前测截图](screenshots/2026-10-31_real_bailian_cup_result.png)。后续结果单独追加，不覆盖前测。

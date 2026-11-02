@@ -81,3 +81,19 @@
 - 真实Flask启动后，在电脑访问127.0.0.1:5000及172.17.25.99:5000均主页200；同源空图片返回INVALID_IMAGE 400，证明已进入图片校验，不消耗API。跨站403、/.env及/app.py为404。
 - 最初受限联网检查失败，后在同一次非受限检查中启动与访问成功；netstat按启动PID匹配未成功，保留原始结果，不声称该辅助检查通过。未修改防火墙，未运行网页完整回归或真实AI，测试服务器已停止。
 - 手机跨设备连接、上传、答题尚未测试，需要用户同Wi-Fi验证。[原始检查结果](development_records/evidence/2026-11-02_lan_access_tests.json)、[当日日志](development_records/daily/2026-11-02.md)。
+
+## 2026-11-02 任务B：iPhone相册照片格式兼容
+
+**历史尝试，现已回退（任务C）**：用户反馈不行并要求撤回。本节为尝试当时结果，不能据此声称当前版本支持前端JPEG标准化，或真实iPhone问题已解决。
+
+- 用户报告：手机拍照真实识别正常；相册IMG_8150.jpeg可预览，但后端报格式不一致或动画。错误分支定位于decode_image，早于百炼调用。没有取得原照片，不能确定具体是HEIC、MPO还是其他错标格式。
+- [16项后端离线测试](development_records/evidence/2026-11-02_iphone_backend_tests.txt)通过，保留真实格式/帧数/大小限制，新增拒绝错标和多帧、方向校正及元数据移除检查。
+- [桌面Edge照片上传测试](development_records/evidence/2026-11-02_iphone_upload_tests.json)通过：生成的JPEG、PNG、WebP、错标MIME的PNG、MPO及空MIME/错扩展名JPEG均转为实际单帧JPEG，真实Flask校验通过后在故意缺Key处停止；伪装SVG、损坏JPEG、PNG/WebP动画、超8 MB文件被拒绝。样例名IMG_8150.jpeg并非原照片，`.heic`样例实际字节为JPEG，不代表原生HEIC已测试。
+- 一组本地瓶子分类/双语/答题+10/树Lv.1/刷新保存通过。初次测试误写既有英文名称，修正测试预期后通过，失败记录及前两轮截图保留。未运行全量网页回归或新的真实百炼请求，未修改.env。
+- [最终截图](development_records/screenshots/2026-11-02_normalized_photo_local_test_03.png)是真实桌面联调的生成样例，不是手机截图或AI成功。原照片、真实iPhone相机和相册、HEIC解码及旋转方向仍需设备复测。
+
+## 2026-11-02 任务C：撤回相册兼容修改
+
+- 程序及README已恢复57d5df9：HTML、app.py、test_app.py、README与该提交内容一致。原局域网配置保留。
+- 恢复后实际运行原14项后端离线测试，全部通过；没有真实API请求。手机相册问题仍存在待解决，回退后手机实测尚未执行。
+- 回退前代码备份保存在项目外的RecycleAI_backups；原Prompt、截图和测试记录保留。未改.env、未Commit/Push或重写Git历史。

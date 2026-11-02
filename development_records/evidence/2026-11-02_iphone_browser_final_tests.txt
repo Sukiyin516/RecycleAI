@@ -1,0 +1,90 @@
+127.0.0.1 - - [02/Nov/2026 18:26:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2026 18:26:25] "POST /api/classify HTTP/1.1" 503 -
+127.0.0.1 - - [02/Nov/2026 18:26:26] "POST /api/classify HTTP/1.1" 503 -
+127.0.0.1 - - [02/Nov/2026 18:26:26] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [02/Nov/2026 18:26:26] "POST /api/classify HTTP/1.1" 503 -
+127.0.0.1 - - [02/Nov/2026 18:26:27] "POST /api/classify HTTP/1.1" 503 -
+127.0.0.1 - - [02/Nov/2026 18:26:27] "POST /api/classify HTTP/1.1" 503 -
+127.0.0.1 - - [02/Nov/2026 18:26:27] "POST /api/classify HTTP/1.1" 503 -
+127.0.0.1 - - [02/Nov/2026 18:26:29] "GET / HTTP/1.1" 200 -
+{
+  "date": "2026-11-02",
+  "browser": "Desktop Edge (not real iPhone Safari)",
+  "checks": [
+    {
+      "test": "camera.jpeg",
+      "passed": true,
+      "output": "single-frame image/jpeg",
+      "input_actual_format": "JPEG",
+      "backend": "API_KEY_MISSING (expected, no real AI)"
+    },
+    {
+      "test": "IMG_8150.jpeg",
+      "passed": true,
+      "output": "single-frame image/jpeg",
+      "input_actual_format": "PNG",
+      "backend": "API_KEY_MISSING (expected, no real AI)"
+    },
+    {
+      "test": "photo.png",
+      "passed": true,
+      "output": "single-frame image/jpeg",
+      "input_actual_format": "PNG",
+      "backend": "API_KEY_MISSING (expected, no real AI)"
+    },
+    {
+      "test": "photo.webp",
+      "passed": true,
+      "output": "single-frame image/jpeg",
+      "input_actual_format": "WEBP",
+      "backend": "API_KEY_MISSING (expected, no real AI)"
+    },
+    {
+      "test": "multi_picture.jpeg",
+      "passed": true,
+      "output": "single-frame image/jpeg",
+      "input_actual_format": "MPO",
+      "backend": "API_KEY_MISSING (expected, no real AI)"
+    },
+    {
+      "test": "empty_mime.heic",
+      "passed": true,
+      "output": "single-frame image/jpeg",
+      "input_actual_format": "JPEG",
+      "backend": "API_KEY_MISSING (expected, no real AI)"
+    },
+    {
+      "test": "forged.jpeg",
+      "passed": true,
+      "output": "rejected before upload"
+    },
+    {
+      "test": "broken.jpeg",
+      "passed": true,
+      "output": "rejected before upload"
+    },
+    {
+      "test": "animated.png",
+      "passed": true,
+      "output": "rejected before upload"
+    },
+    {
+      "test": "animated.webp",
+      "passed": true,
+      "output": "rejected before upload"
+    },
+    {
+      "test": "large.jpeg",
+      "passed": true,
+      "output": "rejected before upload"
+    },
+    {
+      "test": "local demo, bilingual, quiz +10, tree and storage",
+      "passed": true
+    }
+  ],
+  "real_api_calls": 0,
+  "screenshot": "development_records\\screenshots\\2026-11-02_normalized_photo_local_test_03.png",
+  "fixture_note": "All inputs are generated test images. IMG_8150.jpeg is a PNG fixture with a simulated filename, not the original photo; empty_mime.heic contains JPEG bytes, not HEIC.",
+  "limitations": "Original IMG_8150.jpeg and real HEIC decoding on iPhone unavailable; camera, Photos picker, orientation and native HEIC must be retested on the device."
+}
